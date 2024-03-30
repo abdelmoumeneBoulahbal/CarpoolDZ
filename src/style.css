@@ -1,0 +1,347 @@
+:root{
+    --primary : rgb(4,181,194);
+    --secondary : rgb(82, 65, 126);
+
+    --darkblue : rgb(2, 63, 104);
+
+    --pink : rgba(211, 32, 56, 0.863);
+    --lightpink : rgb(255, 0, 55);
+
+    --violet : #8c52ff;
+
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+::placeholder{
+    color: white;
+    opacity: .7;
+}
+::placeholder:hover{
+    opacity: 0;
+}
+body{
+
+    color: rgb(6, 94, 129);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+
+}
+/* Header Section */
+header{
+    padding: 20px;
+    background-color: var(--primary);
+
+}
+nav{
+    margin-left: 100px !important;
+    margin-right: 90px !important;
+
+    color: white;
+
+    display: flex;
+    padding: 10px;
+
+    margin: auto;
+    align-items: center;
+
+    justify-content: space-between;
+}
+nav h1{
+    font-style: italic;
+    font-size: 2.3rem;
+}
+.icon-home{
+    font-size: 3rem;
+}
+
+/* End of header section */
+
+
+
+
+
+/* Main section */
+.hero-div{
+    background: linear-gradient(#DDD6E8, #EDEAF3,#FFFFFF );
+    height: 670px;
+}
+
+/*Search Section */
+.search-home-section{
+  width: 100%;
+}
+.search-home-section img{
+    width: 1200px;
+    margin: auto;
+    display: flex;
+}
+
+.search-home-section input{
+
+    cursor: pointer;
+
+    color: white;
+
+    border: none;
+
+    text-align: center;
+
+    font-size: 1.5rem;
+    background-color: transparent;
+
+    width: 170px;
+    margin: 0px;
+    padding: 0px;
+
+    margin-left: 20px;
+
+    border-right: 2px solid rgba(255, 255, 255, 0.5);
+}
+input:focus{
+    outline: none;
+    
+}
+
+.passenger{
+    border-right: transparent !important;
+    margin-right: -10px !important;
+}
+
+.input-form{
+
+    background-color: var(--primary);
+    box-shadow: 0px 9px 20px rgba(0, 0, 0, 0.575);
+    text-align: center;
+
+    margin: auto;
+    padding: 25px;
+
+    border-radius: 40px;
+
+    align-items: baseline;
+
+    margin-right: -80px;
+    z-index: 1000;
+
+    transition: all 2s ease;
+
+}
+.input-form:hover{
+    background-color: var(--primary);
+    box-shadow: 0px 0px 30px var(--lightblue);
+}
+.input-div{
+
+    text-align: center;
+
+    padding: 5px;
+
+    margin-top: -40px !important;
+    margin: auto;
+    
+    width: fit-content;
+    
+    position: sticky;
+  
+   
+    
+    display: flex;
+    justify-content: center;
+}
+
+.search-button{
+    box-shadow: 0px 9px 40px rgba(0, 0, 0, 0.575);
+
+    color: white;
+    padding: 21px;
+    padding-left: 100px;   
+        
+    font-size: 1.5rem;
+
+    border: none;
+    background-color: var(--pink);
+
+    border-radius: 40px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+
+    padding-right: 40px;
+
+    transition: all 1s ease;
+}
+.search-button:hover{
+
+    box-shadow: 0px 0px 0px;
+
+    color: rgba(255, 255, 255, 0.856);
+    cursor: pointer;
+
+    background-color: var(--lightpink);
+}
+/*End of search section */
+
+/* Review Section */
+.review-home-section{
+
+    font-weight: 400;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    
+    padding: 20px;
+    margin-top: 100px;
+
+}
+
+.review-home-section img{
+    border-radius: 20px;
+    width: 190px;
+
+    margin: 20px;
+}
+.car-review{
+    border-radius: 20px;
+
+    display: flex;
+
+    grid-area: 1 / 1 / 2 / 2;
+    grid-row: 1 / 3;
+
+
+    padding: 20px;
+
+}
+.car-review img{
+
+    width: 320px;
+    height: 300px;
+
+}
+
+.car-review p{
+    font-size: 1.7rem;
+    text-align: left;
+
+    margin-top: 70px;
+    margin-left: 25px;
+    
+
+}
+.client-1{
+    grid-area: 1 / 2 / 2 / 3;
+}
+.client-2{
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+
+.h2{
+    font-size: 1.5rem;
+
+    margin-top: 100px;
+    margin-left: 290px;
+
+    text-align: center;
+    text-align: left !important;
+}
+
+
+.client-1, .client-2, .client-3{
+
+    margin-right: 45px !important;
+
+    border-radius: 20px;
+    font-size: 1.5rem;
+
+    padding: 0px;
+    margin: 0px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+
+/* End of review section */
+
+/* End of Main section */
+
+
+
+
+/* Footer */
+footer{
+
+    width: 100%;
+
+    margin-top: 100px;
+
+    display: grid;
+
+    padding: 50px;
+
+    align-items: center;
+    justify-content: space-around;
+
+    background-color: var(--darkblue);
+
+    color: white;
+
+    grid-template-columns: auto auto auto;
+}
+
+footer a{
+    display: flex;
+    cursor: pointer;
+    text-decoration: none;
+    
+    
+}
+
+footer a:hover{
+    text-shadow: 0px 0px 10px white;
+                
+}
+
+footer h3{
+    margin-bottom: 15px;
+}
+footer p, a{
+    margin-bottom: 6px;
+}
+/* End Footer */
+
+
+
+@media screen and (max-width:1500px) {
+
+    .review-home-section{
+        display: block;
+    }
+    .car-review{
+        justify-content: center;
+        margin: auto;
+
+    }
+    .h2{
+        text-align: center;
+        margin: auto;
+        justify-content: center !important;
+        display: flex;
+
+        margin-bottom: 100px;
+        margin-top: 30px;
+    }
+
+}
