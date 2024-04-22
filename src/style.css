@@ -2,14 +2,28 @@
     --primary : rgb(4,181,194);
     --secondary : rgb(82, 65, 126);
 
-    --darkblue : rgb(2, 63, 104);
+    --darkblue : rgba(2, 63, 104, 0.889);
+    --darkblue2 : rgba(148, 183, 206, 0.565);
 
     --pink : rgba(211, 32, 56, 0.863);
     --lightpink : rgb(255, 0, 55);
 
     --violet : #8c52ff;
+    --darkviolet : #6c36d7;
+
+    --navy : rgb(0, 65, 196);
+    --blue :  rgb(19, 143, 192);
+
+    --lightviolet : rgb(140, 109, 213);
+    --lightviolet2 : rgb(170,145,226);
+
+    --orange : #FF930F;
 
 }
+
+
+
+
 a{
     text-decoration: none;
     color: white;
@@ -19,14 +33,14 @@ a{
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
+    -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 ::placeholder{
-    color: white;
+    color: rgb(192, 184, 184);
     opacity: .7;
 }
-::placeholder:hover{
-    opacity: 0;
-}
+
 body{
 
     color: rgb(6, 94, 129);
@@ -61,6 +75,171 @@ nav h1{
 .icon-home{
     font-size: 3rem;
 }
+
+
+
+
+
+
+.dropdown-arrow{
+
+    margin-left: 20px;
+    text-align: center;
+
+    font-size: 1.2rem;
+    cursor: pointer;
+    
+    position: relative;
+}
+
+.menu-container:checked .dropdown-menu {
+    background-color: #8c52ff;
+    cursor: pointer;
+
+    display: block;
+}
+
+.menu-container{
+    display: flex;
+
+    align-items: center;
+
+    padding: 10px;
+
+    position: relative;
+}
+.dropdown-menu{
+    display: flex;
+
+    
+    position: absolute;
+    top: 100px !important;
+    right: -50px !important;
+
+    font-size: 1.2rem;
+    color: whitesmoke;
+
+    background: var(--violet);
+
+
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    width: 250px;
+    
+    border-radius: 5px;
+
+    display: none;
+
+    transform-origin: top center;
+    animation: translateX 300ms ease-in-out forwards;
+
+}
+
+
+
+@keyframes translateX {
+  0% {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  
+  80% {
+    transform: translateX(-5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.dropdown-menu-list{
+    list-style: none;
+
+    line-height: 2rem;
+
+    text-align: center;
+
+    width: 100%;
+
+}
+.dropdown-menu-list li{
+    padding: 12px;
+    width: 100%;
+
+    transition: all .4s ease;
+
+    border-top: .5px solid rgba(255, 255, 255, 0);
+    border-bottom: .5px solid rgba(255, 255, 255, 0.228);
+
+}
+
+.dropdown-menu-list li:hover{
+    background-color: rgba(255, 255, 255, 0.292);
+    text-shadow: 0px 0px 5px white;
+    padding: 15px;
+
+    border-top: .5px solid rgb(255, 255, 255);
+    border-bottom: .5px solid rgb(255, 255, 255);
+
+    cursor: pointer;
+}
+
+.dropbtn{
+
+    margin-left: 20px;
+}
+
+.dropbtn:hover{
+
+    cursor: pointer;
+
+
+}
+.show{
+    display: block !important;
+}
+.hide{
+    display: none !important;
+}
+.signup{
+    text-decoration: none !important;
+
+    background: linear-gradient(90deg, hsla(260, 100%, 66%, 1) 0%, hsla(184, 96%, 39%, 1) 100%);
+    transition: background 0.2s ease;
+
+    background-size: 450% 450%;
+
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+.signup:hover{
+    color: white;
+    background-color: var(--darkviolet) !important;
+    
+    animation: gradientAnimation 5s infinite;
+
+    border: 1px solid transparent !important;
+    border-bottom: 1px solid white !important;
+}
+
+@keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+
+
+
 
 /* End of header section */
 
@@ -188,6 +367,9 @@ input:focus{
 }
 /*End of search section */
 
+
+
+
 /* Review Section */
 .review-home-section{
 
@@ -210,7 +392,7 @@ input:focus{
 .car-review{
     border-radius: 20px;
 
-    display: flex;
+    display: flex !important;
 
     grid-area: 1 / 1 / 2 / 2;
     grid-row: 1 / 3;
@@ -237,6 +419,8 @@ input:focus{
 }
 .client-1{
     grid-area: 1 / 2 / 2 / 3;
+
+    margin-top: 55px !important;
 }
 .client-2{
     grid-area: 2 / 2 / 3 / 3;
@@ -247,10 +431,12 @@ input:focus{
     font-size: 1.5rem;
 
     margin-top: 100px;
-    margin-left: 290px;
+
 
     text-align: center;
     text-align: left !important;
+
+    margin-left: 220px !important;
 }
 
 
@@ -271,9 +457,313 @@ input:focus{
     justify-content: center;
 }
 
-
-
 /* End of review section */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* register section */
+
+.register-section{
+    width: 100%;
+    
+    display: none;
+
+}
+  .register-section img{
+      width: 1200px;
+      margin: auto;
+      display: flex;
+  }
+  
+  
+  /* Register title */
+  .registration-title{
+  
+  
+      margin: auto;
+      justify-content: center;
+      display: flex;
+      width: 600px;
+  
+      margin-bottom: 60px;
+      padding-top: 60px;
+      padding-bottom: 20px;
+
+
+
+      border-bottom: 2px solid var(--darkblue);
+
+
+      font-size: 3rem;
+  }
+  /* end register title */
+  
+  
+  
+  .register-div {
+  
+
+      justify-content: center !important;
+      margin: auto !important;
+      margin: 20px;
+  
+      font-size: 2rem;
+  
+  }
+  
+  
+  
+  /* name, email, phone inputs*/
+  input[type='radio'] {
+      height: 20px;
+      width: 20px;
+  
+      margin-right: 20px;
+  
+      accent-color: var(--lightviolet);
+  
+      transition: all 2s ease !important;
+  
+      cursor: pointer;
+  }
+  
+  input[type='radio']:focus{
+      color: #8c52ff;
+  }
+  
+  .register-type-div{
+  
+      display: flex;
+      justify-content: center;
+      margin: auto;
+      
+      text-align: center;
+      align-items: center;
+  
+  }
+  
+  .passenger-label{
+      margin-right: 100px;
+  }
+
+  .register-info-div{
+    margin: auto;
+    justify-content: center;
+    width: fit-content;
+  }
+  
+  .register-info-div input{
+      
+      color: rgb(4, 120, 166);
+  
+      font-weight: 550;
+  
+      display: flex;
+      justify-content: center;
+      margin: auto;
+      
+  
+      font-size: 1.7rem;
+  
+      border-radius: 30px;
+  
+   
+      padding: 20px;
+      width: 700px;
+  
+      border: 3px solid var(--primary);
+  
+      transition: all 0.6s ease;
+  }
+  
+  
+  #name:focus , #phone:focus, #email:focus, #gender:focus, #exp:focus{
+      box-shadow: 0px 0px 20px var(--lightviolet);
+      outline-style: none;
+      border: 3px solid var(--lightviolet);
+  
+      color: rgb(170, 134, 250);
+  }
+  #carType:focus, #carYear:focus, #carName:focus{
+    box-shadow: 0px 0px 20px var(--lightviolet);
+    outline-style: none;
+    border: 3px solid var(--lightviolet);
+
+    color: rgb(170, 134, 250);
+  }
+  label{
+      transition: all 0.2s ease-in;
+   
+  }
+  input:checked + label{
+      font-weight: bold;
+      color: #8c52ff;
+  }
+  
+  #name{
+      margin-top: 45px;
+  }
+  
+
+  /* end name, email, phone inputs */
+  
+  /* passenger data*/
+  .gender:hover{
+    cursor: pointer;
+  }
+  
+  /* end passenger*/
+
+  
+  
+  /*Driver data*/
+  .driver-info-1, .driver-info-2{
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    
+  }
+  .driver-info-1 input{
+    width: 340px;
+    text-align: center;
+
+  }
+  .driver-info-2 input{
+    width: 220px;
+    text-align: center;
+  }
+  #carName{
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  
+  /* end driver*/
+  
+  
+  
+  
+  /* password input and show/hide eye */
+  .password {
+  
+      display: flex;
+      justify-content: center;
+      margin: auto;
+      width: 700px;
+      
+      padding-right: 10px;
+      padding-left: 10px;
+      
+      border-radius: 30px;
+      border: 3px solid var(--primary);
+      
+      margin-bottom: 50px;
+  
+      transition: all 0.5s ease;
+  }
+  .password:focus-within{
+      box-shadow: 0px 0px 20px var(--lightviolet);
+      border: 3px solid var(--violet);
+  }
+  .password input{
+      border: none;
+  }
+  .password img{
+      margin-right: 30px;
+      transition: all 0.5s ease;
+  }
+  .password input:focus{
+      outline: none;
+      color: var(--lightviolet2);
+  }
+  
+  #eyeicon{
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      
+  }
+  /* end password input */
+  
+  #show{
+    display: block;
+  }
+  
+  
+  
+  /* sumbit button */
+  .submit-btn{
+      display: flex;
+      justify-content: center;
+      margin: auto;
+  
+      padding: 20px;
+  
+      width: 700px;
+  
+      border-radius: 25px;
+      
+      font-size: 1.8rem;
+      font-weight: bold;
+  
+      background-color: var(--lightviolet);
+  
+      color: white;
+  
+      border: 3px solid transparent;
+  
+      transition: all 0.7s ease;
+  }
+  .submit-btn:hover{
+  
+      color: #ffffff;
+  
+      box-shadow: 0px 0px 40px var(--lightviolet);
+  
+      cursor: pointer;
+  
+      background-color: rgb(150, 125, 210);
+  
+      border: 3px solid var(--violet);
+  }
+  /* end submit button */
+
+  /* Forms */
+    .register-info-div{
+         display: none ;
+
+         transform-origin: top center;
+        animation: translateX2 1s ease-in-out forwards;
+    }
+
+    @keyframes translateX2 {
+        0% {
+          opacity: 0;
+          transform: translateY(60px);
+        }
+        
+        80% {
+          transform: translateY(-5px);
+        }
+      
+        100% {
+          opacity: 1;
+          transform: translateY(0px);
+        }
+      }
+
+
+
 
 /* End of Main section */
 

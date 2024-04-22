@@ -6,31 +6,58 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    <link href="./style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    
+    <link href="./style.css" rel="stylesheet" />
+   
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.3.0/uicons-thin-straight/css/uicons-thin-straight.css'>
+    
     <title>CarpoolDZ</title>
 </head>
 <body>
+    
     <header>
         <nav>
             <div>
                 <a href="./index.html">
                     <h1>CarpoolDZ</h1>
                 </a>
+
             </div>
-            <a href="./pages/Register.html">
-                <i style="text-decoration: none !important;" class="fa-solid fa-circle-user icon-home"></i>
-            </a>
-             
+
+            <div class="menu-container">
+
+                <div>
+                    <a href="./pages/Register.html">
+                        <i style="text-decoration: none !important;" class="fa-solid fa-circle-user icon-home"></i>
+                    </a>
+                </div>
+
+               
+                
+                <img src="../img/icons/angle-small-down.png"  class="dropbtn" id="arrow">
+
+                <div class="dropdown-menu" id="myDropdown">
+                    <ul class="dropdown-menu-list">
+                        <li class="signup" id="signup">Sign Up</li>
+                        <li>Log In</li>
+                        <li>About Us</li>
+                        <li>Search</li>
+                    </ul>
+                </div>
+                
+            </div>
+  
         </nav>
     </header>
 
     <main>
-        <section class="search-home-section">
+        
+        <section id="search-home-section" class="search-home-section">
             <div class="hero-div">
                 <img src="../img/hero-img.jpg" />
             </div>
             <div class="input-div" >
-                <form class="input-form">
+                <form class="input-form" id="search">
                     <datalist id="depature">
                       <option value="Internet Explorer">
                       <option value="Firefox">
@@ -38,7 +65,7 @@
                       <option value="Opera">
                       <option value="Safari">
                     </datalist>
-                    <input class="depature" list="depature" placeholder="Depature">
+                    <input class="depature" list="depature" placeholder="Depature" id="search">
     
                     <datalist id="distination">
                         <option value="Internet Explorer">
@@ -47,7 +74,7 @@
                         <option value="Opera">
                         <option value="Safari">
                     </datalist>
-                    <input list="distination" placeholder="Distination">
+                    <input list="distination" placeholder="Distination" id="search"> 
     
                     <datalist id="date">
                         <option value="Internet Explorer">
@@ -56,7 +83,7 @@
                         <option value="Opera">
                         <option value="Safari">
                     </datalist>
-                    <input list="date" placeholder="Date">
+                    <input list="date" placeholder="Date" id="search">
     
                    
                     <datalist id="passenger">
@@ -66,7 +93,7 @@
                         <option value="Opera">
                         <option value="Safari">
                     </datalist> 
-                    <input list="passenger" class="passenger" placeholder="Passenger">
+                    <input list="passenger" class="passenger" placeholder="Passenger" id="search">
                     
                     
                     
@@ -75,7 +102,9 @@
             </div>
         </section>
 
-        <section class="review-home-section">
+
+
+        <section id="review-home-section" class="review-home-section">
 
             <div class="car-review">
                 <img src="../img/car.png">
@@ -88,7 +117,7 @@
             </div>
 
             <div class="h2">
-                <h2>Go everywhere with us !</h2>
+                <h2>Go everywhere with us!</h2>
             </div>
 
   
@@ -109,8 +138,151 @@
             </div>
     
         </section>
+
+
+
+        <section class="register-section">
+
+            <h2 class="registration-title">Registration</h2>
+            <div class="register-div">  
+
+                <div class="register-type-div">
+
+                    <input id="passenger" type="radio" name="user-type" value="Passenger" onclick="displayRadioValue()"> 
+                    <label class="passenger-label" for="passenger">Passenger</label>
+
+                    <input id="driver" type="radio" name="user-type" value="Driver" onclick="displayRadioValue()">   
+                    <label for="driver" class="driver-label" >Driver</label>
+
+                </div>
+                
+                <form id="passenger-form">
+
+
+                    <div class="register-info-div" id="form-passenger">
+
+                        <input name="info" placeholder="Name" id="name" type="text" required> <br>
+                        
+                        <datalist id="gender">
+                            <option value="Woman">
+                            <option value="Man">
+                        </datalist>
+                        <input list="gender" placeholder="Gender" class="gender"><br>
+
+                        <input name="info" placeholder="Phone" id="phone" type="tel" required> <br>
+                        <input name="info" placeholder="Email" id="email" type="email" required><br>
+
+                        <div class="password">
+                            <input id="password" placeholder="Password" type="password" required><br>
+                            <img id="eyeicon" src="../../img/icons/show.png">
+                        </div>
+                       
+                        <a href="#">
+                            <button class="submit-btn">
+                                Submit
+                            </button>
+                        </a>
+                    </div>
+                </form>
+ 
+
+
+                <form >
+                    <div class="register-info-div" id="form-driver">
+                        <br><input name="info" placeholder="Name" id="name" type="text" required> <br>
+                        
+                        <div class="driver-info-1">
+                            <datalist id="gender">
+                                <option value="Woman">
+                                <option value="Man">
+                            </datalist>
+                            <input list="gender" placeholder="Gender" class="gender" id="gender" required>
+                            <input placeholder="Experience" type="number" id="exp" required>
+                        </div><br>
+
+                        <input name="info" placeholder="Phone" id="phone" type="tel" required> <br>
+                        <input name="info" placeholder="Email" id="email" type="email" required><br>
+
+                        <div class="driver-info-2">
+                            <datalist id="typeCar">
+                                <option value="SUV">
+                                <option value="Hatchback">
+                                <option value="Compact SUV">
+                                <option value="Luxury">
+                                <option value="4*4">
+                                <option value="Electric Vehicle">
+                            </datalist>
+                            <input id="carType" class="carType" placeholder="Type of Car" list="typeCar" required>
+
+                            <input id="carName" placeholder="Car Name" required>
+                            <input id="carYear" placeholder="Year" type="datetime" required>
+                        </div>
+                        
+                        <br>
+ 
+                        <div class="password">
+                            <input id="password" placeholder="Password" type="password" required><br>
+                            <img id="eyeicon" src="../../img/icons/show.png">
+                        </div>
+                       
+                        <a href="#">
+                            <button class="submit-btn">
+                                Submit
+                            </button>
+                        </a>
+                    </div>
+                </form>
+            
+            </div>
+        </section>
     </main>
-    <script src="./script.js"></script>
+
+    <script>
+
+       var inputSpec = document.getElementById("carType");
+       inputSpec.style.fontSize = "22px";
+
+       var carName = document.getElementById("carName");
+       carName.style.fontSize = "22px";
+
+       var carYear = document.getElementById("carYear");
+       carYear.style.fontSize = "22px";
+
+
+
+       function displayRadioValue() {
+            var ele = document.getElementsByName('user-type');
+            var userType;
+
+            for (var i = 0; i < ele.length; i++) {
+                if (ele[i].checked) {
+                    userType = ele[i].value;
+                    break; 
+                }
+            }
+
+            console.log("Hello " + userType);
+
+            if (userType == "Passenger") {
+                document.getElementById("form-passenger").classList.toggle("show");
+
+                if(document.getElementById("form-driver").classList.contains("show")) {
+                    document.getElementById("form-driver").classList.remove("show");
+                }
+            }
+            if (userType == "Driver") {
+                document.getElementById("form-driver").classList.toggle("show");
+
+                if(document.getElementById("form-passenger").classList.contains("show")) {
+                    document.getElementById("form-passenger").classList.remove("show");
+                }
+            }
+        }
+
+    </script>
+    <script src="script.js"></script>
+
+    </main>
 </body>
 
 <footer>
