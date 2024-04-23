@@ -45,6 +45,12 @@ window.onclick = function(event) {
 let signup = document.getElementById("signup");
 
 signup.onclick = function () {
+
+    document.getElementById("search-home-section").classList.toggle("hide");
+    document.getElementById("review-home-section").classList.toggle("hide");
+
+    document.getElementById("register-section").classList.toggle("show");
+
  
 }
 
@@ -65,4 +71,46 @@ eyeicon.onclick = function() {
 }
 
 
+    var inputSpec = document.getElementById("carType");
+    inputSpec.style.fontSize = "22px";
 
+    var carName = document.getElementById("carName");
+    carName.style.fontSize = "22px";
+
+    var carYear = document.getElementById("carYear");
+    carYear.style.fontSize = "22px";
+
+
+
+function displayRadioValue() {
+    var ele = document.getElementsByName('user-type');
+    var userType;
+
+    for (var i = 0; i < ele.length; i++) {
+        if (ele[i].checked) {
+            userType = ele[i].value;
+            break; 
+        }
+    }
+
+    console.log("Hello " + userType);
+
+    if (userType == "Passenger") {
+        document.getElementById("form-passenger").classList.toggle("show");
+
+        if(document.getElementById("form-driver").classList.contains("show")) {
+            document.getElementById("form-driver").classList.remove("show");
+        }
+    }
+    if (userType == "Driver") {
+        document.getElementById("form-driver").classList.toggle("show");
+
+        if(document.getElementById("form-passenger").classList.contains("show")) {
+            document.getElementById("form-passenger").classList.remove("show");
+        }
+    }
+}
+
+
+var searchBar = document.getElementById("search");
+searchBar.style.color = 'white';

@@ -18,7 +18,7 @@
     <header>
         <nav>
             <div>
-                <a href="./index.html">
+                <a href="#">
                     <h1>CarpoolDZ</h1>
                 </a>
 
@@ -32,8 +32,6 @@
                     </a>
                 </div>
 
-               
-                
                 <img src="../img/icons/angle-small-down.png"  class="dropbtn" id="arrow">
 
                 <div class="dropdown-menu" id="myDropdown">
@@ -52,6 +50,7 @@
 
     <main>
         
+        <!--Hero and Search Bar-->
         <section id="search-home-section" class="search-home-section">
             <div class="hero-div">
                 <img src="../img/hero-img.jpg" />
@@ -98,12 +97,18 @@
                     
                     
                 </form>
-                <button class="search-button">Search</button>
+                
+                <button class="search-button">
+                    <a href="./pages/Search.html">
+                        Search
+                    </a>
+                </button>
             </div>
         </section>
+        <!--End-->
 
 
-
+        <!--Review Section-->
         <section id="review-home-section" class="review-home-section">
 
             <div class="car-review">
@@ -138,14 +143,17 @@
             </div>
     
         </section>
+        <!--End-->
 
 
-
-        <section class="register-section">
+        <!--Register Section-->
+        <section id="register-section" class="register-section">
 
             <h2 class="registration-title">Registration</h2>
-            <div class="register-div">  
 
+            <div class="register-div">  
+                
+                <!--User Type-->
                 <div class="register-type-div">
 
                     <input id="passenger" type="radio" name="user-type" value="Passenger" onclick="displayRadioValue()"> 
@@ -155,9 +163,11 @@
                     <label for="driver" class="driver-label" >Driver</label>
 
                 </div>
-                
-                <form id="passenger-form">
+                <!--End-->
 
+
+                <!--Passenger Form-->
+                <form id="passenger-form">
 
                     <div class="register-info-div" id="form-passenger">
 
@@ -167,7 +177,7 @@
                             <option value="Woman">
                             <option value="Man">
                         </datalist>
-                        <input list="gender" placeholder="Gender" class="gender"><br>
+                        <input id="gender" list="gender" placeholder="Gender" class="gender"><br>
 
                         <input name="info" placeholder="Phone" id="phone" type="tel" required> <br>
                         <input name="info" placeholder="Email" id="email" type="email" required><br>
@@ -184,10 +194,10 @@
                         </a>
                     </div>
                 </form>
- 
+                <!--End Passenger form-->
 
-
-                <form >
+                <!--Driver Form-->
+                <form id="driver-form">
                     <div class="register-info-div" id="form-driver">
                         <br><input name="info" placeholder="Name" id="name" type="text" required> <br>
                         
@@ -232,57 +242,19 @@
                         </a>
                     </div>
                 </form>
-            
+                <!--End Driver Form-->
+                
             </div>
+
         </section>
+        <!--End-->
+
     </main>
 
-    <script>
 
-       var inputSpec = document.getElementById("carType");
-       inputSpec.style.fontSize = "22px";
-
-       var carName = document.getElementById("carName");
-       carName.style.fontSize = "22px";
-
-       var carYear = document.getElementById("carYear");
-       carYear.style.fontSize = "22px";
-
-
-
-       function displayRadioValue() {
-            var ele = document.getElementsByName('user-type');
-            var userType;
-
-            for (var i = 0; i < ele.length; i++) {
-                if (ele[i].checked) {
-                    userType = ele[i].value;
-                    break; 
-                }
-            }
-
-            console.log("Hello " + userType);
-
-            if (userType == "Passenger") {
-                document.getElementById("form-passenger").classList.toggle("show");
-
-                if(document.getElementById("form-driver").classList.contains("show")) {
-                    document.getElementById("form-driver").classList.remove("show");
-                }
-            }
-            if (userType == "Driver") {
-                document.getElementById("form-driver").classList.toggle("show");
-
-                if(document.getElementById("form-passenger").classList.contains("show")) {
-                    document.getElementById("form-passenger").classList.remove("show");
-                }
-            }
-        }
-
-    </script>
     <script src="script.js"></script>
 
-    </main>
+
 </body>
 
 <footer>
@@ -307,4 +279,5 @@
     </div>
 
 </footer>
+
 </html>

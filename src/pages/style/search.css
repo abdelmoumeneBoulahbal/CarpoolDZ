@@ -1,0 +1,460 @@
+:root{
+    --primary : rgb(4,181,194);
+    --secondary : rgb(82, 65, 126);
+
+    --darkblue : rgb(7, 81, 130);
+    --darkblue2 : rgba(148, 183, 206, 0.565);
+
+    --pink : rgba(211, 32, 56, 0.863);
+    --lightpink : rgb(255, 0, 55);
+
+    --violet : #8c52ff;
+    --darkviolet : #6c36d7;
+
+    --navy : rgb(0, 65, 196);
+    --blue :  rgb(19, 143, 192);
+
+    --lightviolet : rgb(140, 109, 213);
+    --lightviolet2 : rgb(170,145,226);
+
+    --orange : #FF930F;
+
+}
+
+
+
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+::placeholder{
+    color: rgba(203, 199, 194, 0.986);
+    opacity: .7;
+}
+
+body{
+
+    color: rgb(6, 94, 129);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+
+}
+
+
+
+
+/* Header Section */
+header{
+    padding: 20px;
+    background-color: var(--primary);
+
+}
+nav{
+    margin-left: 100px !important;
+    margin-right: 90px !important;
+
+    color: white;
+
+    display: flex;
+    padding: 10px;
+
+    margin: auto;
+    align-items: center;
+
+    justify-content: space-between;
+}
+nav h1{
+    font-style: italic;
+    font-size: 2.3rem;
+}
+.icon-home{
+    font-size: 3rem;
+}
+
+
+
+
+
+
+.dropdown-arrow{
+
+    margin-left: 20px;
+    text-align: center;
+
+    font-size: 1.2rem;
+    cursor: pointer;
+    
+    position: relative;
+}
+
+.menu-container:checked .dropdown-menu {
+    background-color: #8c52ff;
+    cursor: pointer;
+
+    display: block;
+}
+
+.menu-container{
+    display: flex;
+
+    align-items: center;
+
+    padding: 10px;
+
+    position: relative;
+}
+.dropdown-menu{
+    display: flex;
+
+    
+    position: absolute;
+    top: 100px !important;
+    right: -50px !important;
+
+    font-size: 1.2rem;
+    color: whitesmoke;
+
+    background: var(--violet);
+
+
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    width: 250px;
+    
+    border-radius: 5px;
+
+    display: none;
+
+    transform-origin: top center;
+    animation: translateX 300ms ease-in-out forwards;
+
+}
+
+
+
+@keyframes translateX {
+  0% {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  
+  80% {
+    transform: translateX(-5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.dropdown-menu-list{
+    list-style: none;
+
+    line-height: 2rem;
+
+    text-align: center;
+
+    width: 100%;
+
+}
+.dropdown-menu-list li{
+    padding: 12px;
+    width: 100%;
+
+    transition: all .4s ease;
+
+    border-top: .5px solid rgba(255, 255, 255, 0);
+    border-bottom: .5px solid rgba(255, 255, 255, 0.228);
+
+}
+
+.dropdown-menu-list li:hover{
+    background-color: rgba(255, 255, 255, 0.292);
+    text-shadow: 0px 0px 5px white;
+    padding: 15px;
+
+    border-top: .5px solid rgb(255, 255, 255);
+    border-bottom: .5px solid rgb(255, 255, 255);
+
+    cursor: pointer;
+}
+
+.dropbtn{
+
+    margin-left: 20px;
+}
+
+.dropbtn:hover{
+
+    cursor: pointer;
+
+
+}
+.show{
+    display: block !important;
+}
+.hide{
+    display: none !important;
+}
+.signup{
+    text-decoration: none !important;
+
+    background: linear-gradient(90deg, hsla(260, 100%, 66%, 1) 0%, hsla(184, 96%, 39%, 1) 100%);
+    transition: background 0.2s ease;
+
+    background-size: 450% 450%;
+
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+.signup:hover{
+    color: white;
+    background-color: var(--darkviolet) !important;
+    
+    animation: gradientAnimation 5s infinite;
+
+    border: 1px solid transparent !important;
+    border-bottom: 1px solid white !important;
+}
+
+@keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+/* End of header section */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Search Result Section*/
+section{
+    display: flex !important;
+    margin: auto;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+
+/* Left Side */
+.left-side-container{
+    width: fit-content;
+    margin: 20px;
+    padding: 20px;
+
+}
+.left-side-container h3{
+
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+
+    margin-left: -40px;
+}
+.sorting-radios label, .filter-checks label{
+ 
+    margin-right: 20px;
+
+}
+.sorting-radios, .filter-checks{
+    display: grid;
+
+    grid-template-columns: auto auto;
+
+
+}
+
+
+
+.labels, .inputs{
+    text-align: left;
+    margin-left: -20px;
+    padding: 5px;
+}
+
+
+input{
+
+    margin-top: 11px;
+    margin-bottom: 35px !important;
+    margin-left: 10px;
+    display: block;
+}
+.input-1{
+    margin-top: 9px;
+}
+input:hover{
+    cursor: pointer;
+}
+
+
+
+
+
+span{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.212);
+    display: flex;
+    margin-left: 20px;
+    width: 150px;
+}
+
+label{
+
+    font-size: 1.2rem;
+    font-weight: bold;
+
+    margin-bottom: 25px;
+
+    display: block !important;
+}
+/* End left side*/
+
+
+
+
+/* Right Side*/
+.trip-card{
+    z-index: -1;
+    position: relative;
+
+    font-weight: bold;
+
+    border-radius: 15px;
+
+    padding: 20px;
+    margin: 35px;
+
+    font-size: 1rem;
+
+    border: 3px solid rgb(5, 123, 202);
+    background-color: rgb(4, 81, 119);
+    color: white;
+
+    width: 400px;
+    height: 185px;
+}
+
+.trip-card-top, .trip-card-bottom{
+    display: flex;
+}
+
+.trip-card-bottom{
+
+    align-items: center;
+    margin-top: 23px;
+    margin-left: -10px;
+}
+
+
+
+
+.location{
+
+    margin-left: 10px;
+
+}
+.location p{
+    margin-left: 5px;
+
+}
+.dot1, .dot2{
+    width: 8px;
+    height: 8px;
+
+    position: absolute;
+
+    background-color: rgb(224, 102, 224);
+
+    border-radius: 20px;
+}
+.dot1{
+
+    top: 28px;
+    left: 57px;
+}
+.dot2{
+
+    top: 84px;
+    left: 57px;
+}
+.vline{
+
+    border-left: 2px solid rgb(255, 255, 255);
+    height: 52px;
+    position: absolute;
+
+    top: 33px;
+    left: 80px;
+  
+}
+.hours{
+    margin-right: 25px;
+    font-size: 0.8rem;
+}
+.departure{
+    margin-bottom: 6px;
+}
+.duration{
+    margin-bottom: 21px;
+    opacity: .7;
+}
+
+
+.loc-dep{
+    margin-bottom: 37.5px;
+
+    font-size: 0.9rem;
+}
+
+
+.name{
+
+    margin-left: 22px;
+    margin-right: 170px;
+}
+
+.bus-icon{
+    width: 50px;
+    justify-content: left !important;
+
+    background-color: #ffffff45;
+    padding: 7px;
+
+    border-radius: 100px;
+
+}
+
+
+
+
+/* End right side*/
+
+
+
+/* End SRS*/
