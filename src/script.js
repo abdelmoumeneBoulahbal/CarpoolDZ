@@ -46,29 +46,21 @@ let signup = document.getElementById("signup");
 
 signup.onclick = function () {
 
-    document.getElementById("search-home-section").classList.toggle("hide");
-    document.getElementById("review-home-section").classList.toggle("hide");
+    document.getElementById("search-home-section").classList.add("hide");
+    document.getElementById("review-home-section").classList.add("hide");
 
-    document.getElementById("register-section").classList.toggle("show");
+    document.getElementById("register-section").classList.add("show");
 
  
 }
 
+let sumbit = document.getElementById("submit");
+ sumbit.onclick = function (){
+    document.getElementById("search-home-section").classList.toggle("hide");
+    document.getElementById("review-home-section").classList.toggle("hide");
 
-
-
-let eyeicon = document.getElementById("eyeicon");
-let password = document.getElementById("password");
-
-eyeicon.onclick = function() {
-    if(password.type == 'password'){
-        password.type = "text";
-        eyeicon.src = "../../img/icons/hide.png";
-    }else{
-        password.type = "password";
-        eyeicon.src = "../../img/icons/show.png";
-    }
-}
+    document.getElementById("register-section").classList.toggle("show");
+ }
 
 
     var inputSpec = document.getElementById("carType");

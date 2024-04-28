@@ -360,92 +360,23 @@ nav h1{
 
 
 
-/* Search Result Section*/
-section{
-    display: flex !important;
-    margin: auto;
-    justify-content: space-evenly;
-    align-items: flex-start;
-}
-
-
-/* Left Side */
-.left-side-container{
-    width: fit-content;
-    margin: 20px;
-    padding: 20px;
-
-}
-.left-side-container h3{
-
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-
-    margin-left: -40px;
-}
-.sorting-radios label, .filter-checks label{
- 
-    margin-right: 20px;
-
-}
-.sorting-radios, .filter-checks{
-    display: grid;
-
-    grid-template-columns: auto auto;
-
-
-}
-
-
-
-.labels, .inputs{
-    text-align: left;
-    margin-left: -20px;
-    padding: 5px;
-}
-
-
-input{
-
-    margin-top: 11px;
-    margin-bottom: 35px !important;
-    margin-left: 10px;
-    display: block;
-}
-.input-1{
-    margin-top: 9px;
-}
-input:hover{
-    cursor: pointer;
-}
-
-
-
-
-
-span{
-    border-bottom: 1px solid rgba(0, 0, 0, 0.212);
-    display: flex;
-    margin-left: 20px;
-    width: 150px;
-}
-
-label{
-
-    font-size: 1.2rem;
-    font-weight: bold;
-
-    margin-bottom: 25px;
-
-    display: block !important;
-}
-/* End left side*/
-
-
-
 
 /* Right Side*/
+h2{
+    margin: auto;
+    justify-content: center;
+    display: flex;
+
+    margin-top: 110px;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+
+    margin-bottom: -100px;
+
+    margin-left: 84px;
+}
 .trip-card{
+    
     z-index: -1;
     position: relative;
 
@@ -454,7 +385,6 @@ label{
     border-radius: 15px;
 
     padding: 20px;
-    margin: 35px;
 
     font-size: 1rem;
 
@@ -462,8 +392,12 @@ label{
     background-color: rgb(4, 81, 119);
     color: white;
 
-    width: 400px;
-    height: 185px;
+    width: 500px;
+    height: 220px;
+
+    margin-top: 150px;
+    margin-bottom: -20px;
+
 }
 
 .trip-card-top, .trip-card-bottom{
@@ -472,9 +406,15 @@ label{
 
 .trip-card-bottom{
 
-    align-items: center;
-    margin-top: 23px;
-    margin-left: -10px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+
+    font-size: 1.3rem;
+    margin-top: 50px;
+
+    gap: 180px;
+
 }
 
 
@@ -502,12 +442,12 @@ label{
 .dot1{
 
     top: 28px;
-    left: 57px;
+    left: 78.5px;
 }
 .dot2{
 
     top: 84px;
-    left: 57px;
+    left: 78.5px;
 }
 .vline{
 
@@ -516,7 +456,7 @@ label{
     position: absolute;
 
     top: 33px;
-    left: 80px;
+    left: 82px;
   
 }
 .hours{
@@ -539,20 +479,34 @@ label{
 }
 
 
-.name{
+.car-name{
 
-    margin-left: 22px;
-    margin-right: 170px;
+    display: flex;
+
+
+    margin-right: 70px;
+
+    font-weight: bold;
+    font-size: 1.4rem;
+
+    align-items: flex-end;
+
 }
 
 .bus-icon{
     width: 50px;
     justify-content: left !important;
 
-    background-color: #ffffff45;
-    padding: 7px;
+    background-color: #f7020245;
+    padding: 6px;
+    border-radius: 35px;
+    
+    height: 70px;
+    width: 70px;
+    
+    margin-right: 30px;
 
-    border-radius: 100px;
+    margin-bottom: -20px;    
 
 }
 
@@ -561,8 +515,102 @@ label{
 }
 
 
-/* End right side*/
+.full-info-div{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    margin: auto;
+    align-items: flex-end;
+}
+
+
+.option-title{
+    margin-left: 50px;
+    font-size: 1.4rem;
+}
 
 
 
-/* End SRS*/
+.details-div{
+    display: flex;
+
+    padding: 20px;
+
+    margin: auto;
+    justify-content: center;
+
+    margin-top: 20px;
+    font-weight: 550;
+
+    line-height: 1.9rem;
+
+    position: relative;
+}
+
+.details-div button{
+    transition: all .5s ease;
+    border: 2px solid transparent;
+
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+
+
+    color: white;
+
+    background-color: var(--primary);
+
+    width: 270px;
+
+    border-radius: 18px;
+
+}
+
+.left-info, .right-info{
+    margin-top: 20px;
+
+}
+.right-info{
+
+    position: absolute;
+    margin-left: 830px;
+}
+.left-info{
+    position: absolute;
+    margin-right: 630px;
+}
+
+.btns {
+    
+    position: absolute;
+    padding: 5px;
+    margin-left: 100px;
+
+}
+.btn-1{
+    margin-top: -20px;
+    margin-bottom: 120px;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: rgba(4, 181, 194, 0.646);;
+
+    border: 2px solid var(--primary);
+
+    box-shadow:0px 0px 20px var(--primary);
+}
+
+
+.line{
+    border-left: 2px solid rgba(102, 102, 102, 0.362);
+    height: 80px;
+    position: absolute;
+
+    top: 62px;
+    left: 135px;
+}
+
+.left-info{
+    word-spacing: 3px;
+}
