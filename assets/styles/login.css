@@ -1,0 +1,261 @@
+:root{
+    --primary : rgb(4,181,194);
+    --secondary : rgb(82, 65, 126);
+
+    --darkblue : rgb(7, 81, 130);
+    --darkblue2 : rgba(148, 183, 206, 0.565);
+
+    --pink : rgba(211, 32, 56, 0.863);
+    --lightpink : rgb(255, 0, 55);
+
+    --violet : #8c52ff;
+    --darkviolet : #6c36d7;
+
+    --navy : rgb(0, 65, 196);
+    --blue :  rgb(19, 143, 192);
+
+    --lightviolet : rgb(165, 130, 247);
+    --lightviolet2 : rgb(170,145,226);
+
+    --orange : #FF930F;
+
+}
+
+
+
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+::placeholder{
+    color: rgba(203, 199, 194, 0.986);
+    opacity: .7;
+}
+
+body{
+
+    color: rgb(6, 94, 129);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+
+}
+/* Header Section */
+header{
+    padding: 20px;
+    background-color: var(--primary);
+
+}
+nav{
+    margin-left: 100px !important;
+    margin-right: 90px !important;
+
+    color: white;
+
+    display: flex;
+    padding: 10px;
+
+    margin: auto;
+    align-items: center;
+
+    justify-content: space-between;
+}
+nav h1{
+    font-style: italic;
+    font-size: 2.3rem;
+}
+.icon-home{
+    font-size: 3rem;
+}
+
+/* End of header section */
+
+h2{
+    font-size: 3rem;
+
+    display: flex;
+    margin: auto;
+    justify-content: center;
+
+    margin-top: 150px;
+    margin-bottom: 0px;
+
+    padding-bottom: 40px;
+    width: 400px;
+
+}
+.form-div{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+
+  margin-bottom: 340px;
+}
+
+.form-div input{
+    color: rgb(4, 120, 166);
+
+    font-weight: 550;
+
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    
+
+    font-size: 1.7rem;
+
+    border-radius: 30px;
+
+
+    padding: 20px;
+    width: 600px;
+
+    border: 4px solid var(--primary);
+
+    transition: all 0.6s ease;
+
+    animation: translateY2 .8s ease-in;
+}
+
+.form-div input:focus{
+    box-shadow: 0px 0px 20px var(--lightviolet);
+    outline-style: none;
+    border: 4px solid var(--lightviolet) !important;
+
+    color: rgb(170, 134, 250) !important;
+}
+
+input:hover{
+    cursor: pointer;
+}
+
+.form-div button{
+
+    margin-top: 30px !important;
+
+    animation: translateY2 1s ease;
+    border: 4px solid transparent;
+    padding: 20px;
+    font-size: 1.4rem;
+    width: 600px;
+    text-align: center;
+    
+    margin: auto;
+    justify-content: center;
+    display: block;
+
+    background-color:#8c52ff;
+    color: white;
+
+    border-radius: 30px;
+    font-weight: bold;
+
+    transition: all .5s ease;
+}
+
+.form-div button:hover{
+    border: 4px solid rgb(168, 111, 255);
+    box-shadow: 0px 0px 20px var(--violet);
+
+    background-color: #8c52ff93;
+
+    cursor: pointer;
+}
+
+@keyframes translateY2 {
+    0% {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    
+    80% {
+      transform: translateY(-5px);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes translateX2 {
+    0% {
+        opacity: 0;
+        transform: translateX(200px);
+      }
+      
+      80% {
+        transform: translateX(-5px);
+      }
+    
+      100% {
+        opacity: 1;
+        transform: translateX(0px);
+      }
+  }
+
+
+
+/* Footer */
+footer{
+
+    width: 100%;
+
+    margin-top: 100px;
+
+    display: grid;
+
+    padding: 50px;
+
+    align-items: center;
+    justify-content: space-around;
+
+    background-color: var(--darkblue);
+
+    color: white;
+
+    grid-template-columns: auto auto auto;
+}
+
+footer a{
+    display: flex;
+    cursor: pointer;
+    text-decoration: none;
+    
+    
+}
+
+footer a:hover{
+    text-shadow: 0px 0px 10px white;
+                
+}
+
+footer h3{
+    margin-bottom: 15px;
+}
+footer p, a{
+    margin-bottom: 6px;
+}
+/* End Footer */
+
+.message{
+    font-size: 2rem;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+
+    margin-bottom: 25px;
+    border-top: 3px solid var(--darkblue);
+    width: 420px;
+    padding-top: 20px;
+
+    color: var(--pink);
+}

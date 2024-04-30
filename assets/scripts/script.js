@@ -7,13 +7,13 @@ dropbtn.onclick = function () {
     
     let currentSrc = dropbtn.getAttribute("src");
 
-    if (currentSrc === "../img/icons/angle-small-down.png") {
+    if (currentSrc === "images/icons/angle-small-down.png") {
     
-        dropbtn.setAttribute("src", "../img/icons/angle-small-up.png");
+        dropbtn.setAttribute("src", "images/icons/angle-small-up.png");
 
-    } else if (currentSrc === "../img/icons/angle-small-up.png") {
+    } else if (currentSrc === "images/icons/angle-small-up.png") {
 
-        dropbtn.setAttribute("src", "../img/icons/angle-small-down.png");
+        dropbtn.setAttribute("src", "images/icons/angle-small-down.png");
     }
 }
 
@@ -29,8 +29,8 @@ window.onclick = function(event) {
 
 
                 let currentSrc = dropbtn.getAttribute("src");
-                if (currentSrc === "../img/icons/angle-small-up.png") {
-                    dropbtn.setAttribute("src", "../img/icons/angle-small-down.png");
+                if (currentSrc === "images/icons/angle-small-up.png") {
+                    dropbtn.setAttribute("src", "images/icons/angle-small-down.png");
                 }
 
 
