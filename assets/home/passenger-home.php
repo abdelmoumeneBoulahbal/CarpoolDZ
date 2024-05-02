@@ -1,3 +1,20 @@
+<?php
+    session_start();
+
+
+    if (isset($_SESSION["passenger_id"])){
+
+        $mysqli = require __DIR__ ."../../database.php";
+
+        $sql = "SELECT * FROM passenger
+                WHERE passengerID = {$_SESSION["passenger_id"]}
+        ";
+
+        $result = $mysqli->query($sql);
+        
+        $user = $result->fetch_assoc();
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,8 +25,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    
-    <link href="./styles/style.css" rel="stylesheet" />
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.3.0/uicons-thin-straight/css/uicons-thin-straight.css'>
+    <link href="../styles/passenger/passenger-home.css" rel="stylesheet" />
     <style>
         .hidden{
             display: none;
@@ -20,31 +37,29 @@
 
 <body>
     
-    <header>
+<header>
         <nav>
             <div>
-                <a href="./index.html">
+                <a href="../home/passenger-home.php">
                     <h1>CarpoolDZ</h1>
                 </a>
+
             </div>
 
             <div class="menu-container">
+                <p class="name-passenger"><?= htmlspecialchars($user["name"]) ?></p>
+                <a href="../pages/Profile-Pass.php">
+                    <img src="../images/avatar/passenger (2).png" class="avatar-passenger">
+                </a>
+                <img src="../images/icons/angle-small-down.png"  class="dropbtn" id="arrow">
 
-                <div>
-                    <a href="../assets/pages/Login.php">
-                        <i style="text-decoration: none !important;" class="fa-solid fa-circle-user icon-home"></i>
-                    </a>
-                </div>
-
-                <img src="images/icons/angle-small-down.png"  class="dropbtn" id="arrow">
-
-                <div class="dropdown-menu" id="myDropdown">
+                <div class="dropdown-menu" id="myDropdown" >
                     <ul class="dropdown-menu-list">
-                        <li class="signup" id="signup">Sign Up</li>
-                        <a href="./pages/Login.php">
-                            <li>
-                                Log In
-                            </li> 
+                        <a href="../pages/Profile-Pass.php">
+                            <li class="profile">Profile</li>
+                        </a>
+                        <a href="../php/logout.php">
+                            <li class="logout">Log out</li>
                         </a>
                     </ul>
                 </div>
@@ -52,14 +67,14 @@
             </div>
   
         </nav>
-    </header>
+</header>
 
     <main>
         
         <!--Hero and Search Bar-->
         <section id="search-home-section" class="search-home-section" >
             <div class="hero-div">
-                <img src="images/hero-img.jpg" />
+                <img src="../images/hero-img.jpg" />
             </div>
             <div class="input-div" >
                 <form class="input-form" id="search">
@@ -118,7 +133,7 @@
         <section id="review-home-section" class="review-home-section">
 
             <div class="car-review">
-                <img src="images/car.png">
+                <img src="../images/car.png">
                 <p>We take the time to get<br>
                     to know our members<br>
                     and our partner bus companies. We check<br>
@@ -133,110 +148,28 @@
 
   
             <div class="client-1">
-                <img src="images/avatar/avatar1.svg">
+                <img src="../images/avatar/avatar1.svg">
                 <p>I was looking for a service capable of<br>offering trips!</p>
 
             </div>
 
             <div class="client-2">
                 <p>I was looking for a service<br>capable of offering trips from<br>several companies!</p>
-                <img src="images/avatar/avatar2.svg">
+                <img src="../images/avatar/avatar2.svg">
             </div>
 
             <div class="client-3">
-                <img src="images/avatar/avatar3.svg">
+                <img src="../images/avatar/avatar3.svg">
                 <p>I was looking for a service capable of<br>offering trips from several companies!</p>
             </div>
     
         </section>
         <!--End-->
 
-
-        <!--Register Section-->
-        <section id="register-section" class="register-section">
-
-            <h2 class="registration-title">Registration</h2>
-
-            <div class="register-div">
-                <form method="post" action="./php/signup-process.php" id="user-form">
-                    <div class="radio-div">
-                        <div>
-                            <input type="radio" name="user_type" value="Passenger" id="passenger-radio">
-                            <label for="passenger-radio" id="passenger-label">Passenger</label>
-                        </div>
-
-                        <div>
-
-                            <input type="radio" name="user_type" value="Driver" id="driver-radio">
-                            <label for="driver-radio" id="driver-label">Driver</label>
-                        </div>
-                        
-                    </div>
-
-                    <br>
-                    <br>
-
-                    <div id="passenger-form" class="hidden">
-                        <input type="text" id="name" placeholder="Name" name="name_passenger"> <br>
-                        <input type="email" id="email" placeholder="Email" name="email_passenger"> <br>
-                        <input type="password" id="password" placeholder="Password" name="password_passenger"> <br>
-                        <div class="age-gender-div">
-                            <input type="number" id="age" placeholder="Age" name="age_passenger">
-                            <input type="text" id="gender" placeholder="Gender" name="gender_passenger">
-                        </div><br>
-                        <input type="tel" id="phone" placeholder="Phone" name="phone_passenger"> <br>
-                    </div>
-                    <div id="driver-form" class="hidden" >
-                        <input type="text" id="name" placeholder="Name" name="name_driver"><br>
-                        <input type="email" id="email" placeholder="Email" name="email_driver"> <br>
-                        <input type="password" id="password" id="password" placeholder="Password" name="password_driver"> <br>
-                        <div class="age-gender-div">
-                            <input type="number" id="age" placeholder="Age" name="age_driver">
-                            <input type="text" id="gender" placeholder="Gender" name="gender_driver">
-                        </div><br>
-                        <input type="tel" id="phone" placeholder="Phone" name="phone_driver"> <br>
-                        
-                        <label for="license" class="license-label">Driving License Date</label>
-                        <input type="date" id="license" name="license_driver"> <br>
-                    </div>
-
-
-                    <button id="submit-btn" name="submit">
-                        Submit
-                    </button>
-                </form>
-            </div>
-
-
-
-        </section>
-        <!--End-->
-
     </main>
-    <script src="scripts/script.js"></script>
 
-    <script>
+    <script src="../scripts/script.js">
 
-                document.addEventListener("DOMContentLoaded", function() {
-                    const passengerRadio = document.getElementById("passenger-radio");
-                    const driverRadio = document.getElementById("driver-radio");
-                    const passengerForm = document.getElementById("passenger-form");
-                    const driverForm = document.getElementById("driver-form");
-
-                    passengerRadio.addEventListener("change", function() {
-                        if (passengerRadio.checked) {
-                            passengerForm.classList.remove("hidden");
-                            driverForm.classList.add("hidden");
-                        }
-                    });
-
-                    driverRadio.addEventListener("change", function() {
-                        if (driverRadio.checked) {
-                            driverForm.classList.remove("hidden");
-                            passengerForm.classList.add("hidden");
-                        }
-                    });
-                });
 
     </script>
 
@@ -253,7 +186,7 @@
         <h3>
             Quick links:
         </h3>
-        <a>Register</a>
+        <a href="../php/logout.php">Register with new account</a>
         <a>Contact Us</a>
         <a>About us</a>
     </div>

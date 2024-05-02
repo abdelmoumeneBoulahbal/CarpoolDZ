@@ -25,7 +25,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    
-    <link href="../styles/profile-passenger.css" rel="stylesheet" />
+    <link href="../styles/passenger/profile-passenger.css" rel="stylesheet" />
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.3.0/uicons-thin-straight/css/uicons-thin-straight.css'>
     <title>My Profile</title>
 </head>
@@ -34,24 +34,27 @@
     <header>
         <nav>
             <div>
-                <a href="./index.html">
+                <a href="../home/passenger-home.php">
                     <h1>CarpoolDZ</h1>
                 </a>
             </div>
 
             <div class="menu-container">
 
-                <div>
-                    <a href="./pages/Profile.html">
-                        <i style="text-decoration: none !important;" class="fa-solid fa-circle-user icon-home"></i>
-                    </a>
-                </div>
-
+                <p class="name-passenger"><?= htmlspecialchars($user["name"]) ?></p>
+                <a href="../pages/passenger/Profile-Pass.php">
+                    <img src="../images/avatar/passenger (2).png" class="avatar-passenger">
+                </a>
                 <img src="../images/icons/angle-small-down.png"  class="dropbtn" id="arrow">
 
                 <div class="dropdown-menu" id="myDropdown">
-                    <ul class="dropdown-menu-list">    
-                        <li>Search</li>
+                    <ul class="dropdown-menu-list"> 
+                        <a href="../home/passenger-home.php">
+                            <li class="search">Search</li>
+                        </a>   
+                        <a href="../php/logout.php">
+                            <li class="log-out">Log Out</li>
+                        </a>
                     </ul>
                 </div>
                 
@@ -62,24 +65,31 @@
     
 
         <div class="container">
-            <div class="titles">
-                <h1 class="my-prf">My Profile</h1>
-            </div>
-              <div>
-                  <h1 class="my-jrn">My journeys</h1>
-              </div>
+ 
+                <div>
+                    <h1 class="my-prf">My Profile</h1>
+                </div>
+                <div>
+                    <h1 class="my-jrn">My journeys</h1>
+                </div>
 
+            
             <div class="left-side">
                 <?php if (isset($user)): ?>
 
                     <p>Name : <span class="name"><?= htmlspecialchars($user["name"]) ?></span></p>
                     <p>Email : <span class="email"><?= htmlspecialchars($user["email"]) ?></span></p>
-                    <p>Phone : <span class="phone"><?= htmlspecialchars($user["phone"]) ?></span></p>
+                    <p>Phone : <span class="phone">0<?= htmlspecialchars($user["phone"]) ?></span></p>
 
                 <?php else: ?>
-                <p><a href="login.php">Login In</a> or <a href="signup-proc.php">Signup</a></p> 
+                <p class="message">
+                    <a href="../login.php" class="login-link">Login In </a> 
+                        or 
+                    <a href="../../index.html" class="signup-link">Signup</a>
+                </p> 
                 <?php endif; ?>  
             </div>
+            
             
             <div class="right-side">
                 <table>

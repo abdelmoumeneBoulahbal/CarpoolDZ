@@ -21,22 +21,25 @@
                 die("Password must contain a number");
             }
 
+
+
             $password_hash_passenger = password_hash($_POST["password_passenger"], PASSWORD_DEFAULT);
             $mysqli = require  __DIR__ . "../../database.php";
             
-            $sql = "INSERT INTO passenger (name, password, 
+            $sql = "INSERT INTO passenger (name, password, age,
                                             email, gender, phone)
-                    VALUES (?, ?, ?, ?, ?)";
+                    VALUES (?, ?, ?, ?, ?, ?)";
 
             $stmt = $mysqli->stmt_init();
 
             if(! $stmt->prepare($sql)){
-                die('SQL error: ' . $mysqli->error);
+                die("SQL error:" . $mysqli->error);
             }
 
-            $stmt->bind_param(  'sssss', 
+            $stmt->bind_param(  'ssssss', 
                                 $_POST['name_passenger'],
-                                $password_hash_passenger,    
+                                $password_hash_passenger,  
+                                $_POST["age_passenger"],  
                                 $_POST["email_passenger"],
                                 $_POST["gender_passenger"],
                                 $_POST["phone_passenger"],
@@ -47,7 +50,7 @@
                 session_start();
                 $_SESSION["user_type"] = $_POST["user_type"];
 
-                header("Location: signup-success.php");
+                header("Location: ../pages/signup-success.html");
             }catch(mysqli_sql_exception){
                 die("Email already taken");
             }
@@ -74,7 +77,50 @@
             if( ! preg_match("/[0-9]/", $_POST["password_driver"])){
                 die("Password must contain a number");
             }
-        
+            
+            $password_hash_driver = password_hash($_POST["password_driver"], PASSWORD_DEFAULT);
+            $mysqli = require  __DIR__ . "../../database.php";
+
+            
+            $licenseDate = new DateTime($_POST["license_driver"]);
+            $today = new DateTime(date('m.d.y'));
+            if($licenseDate>$today){
+                die('Invalid License Date!');
+            }else{
+                $diff = $today->diff($licenseDate);
+                $experience = $diff->y;
+            }
+            
+            $sql = "INSERT INTO driver (name, password, experience, age,
+                                            email, gender, phone)
+                    VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+            $stmt = $mysqli->stmt_init();
+
+            if(! $stmt->prepare($sql)){
+                die("SQL error: " . $mysqli->error);
+            }
+
+            $stmt->bind_param(  'sssssss', 
+                                $_POST['name_driver'],
+                                $password_hash_driver,
+                                $experience,
+                                $_POST["age_driver"],   
+                                $_POST["email_driver"],
+                                $_POST["gender_driver"],
+                                $_POST["phone_driver"]
+                            );
+
+            try{
+                $stmt->execute();
+                session_start();
+                $_SESSION["user_type"] = $_POST["user_type"];
+
+                header("Location: ../pages/signup-success.html");
+                exit;
+            }catch(mysqli_sql_exception){
+                die("Email already taken");
+            }
         
         }else {
             die("Please Choose a Type.");

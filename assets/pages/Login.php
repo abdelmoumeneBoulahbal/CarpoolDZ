@@ -7,31 +7,128 @@
 
         $mysqli = require __DIR__ ."../../database.php";
 
-        if($_SESSION["user_type"] == "Passenger"){
+        if(!empty($_SESSION["user_type"])){
+            if($_SESSION["user_type"] == "Passenger"){
 
-            $sql = sprintf("SELECT * FROM passenger 
-                        WHERE email = '%s'",
-                        $mysqli->real_escape_string($_POST["email_login"]));
+                $sql = sprintf("SELECT * FROM passenger 
+                            WHERE email = '%s'",
+
+                $mysqli->real_escape_string($_POST["email_login"]));
+                            
+                $result = $mysqli->query($sql);
+                $user = $result->fetch_assoc();
+                            
+                if($user){
+                    if(password_verify($_POST["password_login"], $user["password"])){
+                        session_start();
+                        session_regenerate_id();
+                        $_SESSION["passenger_id"] = $user["passengerID"];
+                                    
+                        header("Location: Profile-Pass.php");
+                        exit;
+                    }
+                }
+                            
+                $is_invalid = true;
+
+            }else if($_SESSION["user_type"] == "Driver"){
+
+                $sql = sprintf("SELECT * FROM driver 
+                                WHERE email = '%s'",
+                $mysqli->real_escape_string($_POST["email_login"]));
+                
+                $result = $mysqli->query($sql);
+                $user = $result->fetch_assoc();
+                
+                if($user){
+                    if(password_verify($_POST["password_login"], $user["password"])){
+                        session_start();
+                        session_regenerate_id();
+                        $_SESSION["driver_id"] = $user["DriverID"];
                         
-                        $result = $mysqli->query($sql);
-                        $user = $result->fetch_assoc();
-                        
-                        if($user){
-                            if(password_verify($_POST["password_login"], $user["password"])){
-                                session_start();
-                                session_regenerate_id();
-                                $_SESSION["passenger_id"] = $user["passengerID"];
-                                
-                                header("Location: Profile-Pass.php");
-                                exit;
-                            }
+                        header("Location: Profile-Driver.php");
+                        exit;
+                    }
+                }
+                
+                $is_invalid = true;
+            }
+
+        }else{
+            $email = $mysqli->real_escape_string($_POST["email_login"]);
+
+            // Check passenger table
+            $sql_passenger = sprintf("SELECT * FROM passenger WHERE email = '%s'", $email);
+            $result_passenger = $mysqli->query($sql_passenger);
+
+            if (!$result_passenger) {
+                die('Error in SQL query: ' . $mysqli->error);
+            }
+
+            if ($result_passenger->num_rows > 0) {
+                // Data found in passenger table
+                $user = $result_passenger->fetch_assoc();
+                // Process user data from passenger table
+
+                if($user){
+                    if(password_verify($_POST["password_login"], $user["password"])){
+                        session_start();
+                        session_regenerate_id();
+                        $_SESSION["passenger_id"] = $user["passengerID"];
+                                    
+                        header("Location: Profile-Pass.php");
+                        exit;
+                    }
+                }
+                            
+                $is_invalid = true;
+
+            } else {
+                // No data found in passenger table, check driver table
+                $sql_driver = sprintf("SELECT * FROM driver WHERE email = '%s'", $email);
+                $result_driver = $mysqli->query($sql_driver);
+
+                if (!$result_driver) {
+                    die('Error in SQL query: ' . $mysqli->error);
+                }
+
+                if ($result_driver->num_rows > 0) {
+                    // Data found in driver table
+                    $user = $result_driver->fetch_assoc();
+                    // Process user data from driver table
+
+                    if($user){
+                        if(password_verify($_POST["password_login"], $user["password"])){
+                            session_start();
+                            session_regenerate_id();
+                            $_SESSION["driver_id"] = $user["DriverID"];
+                                        
+                            header("Location: Profile-Driver.php");
+                            exit;
                         }
-                        
-                        $is_invalid = true;
-        }
-        else if($_SESSION["user_type"] == "Driver"){
+                    }
+                                
+                    $is_invalid = true;
+                } else {
+                    // No data found in both passenger and driver tables
+                    die('No data found');
+                }
+            }
 
-        }
+            if($user){
+                if(password_verify($_POST["password_login"], $user["password"])){
+                    session_start();
+                    session_regenerate_id();
+                    $_SESSION["driver_id"] = $user["DriverID"];
+                                
+                    header("Location: Profile-Driver.php");
+                    exit;
+                }
+            }
+                        
+            $is_invalid = true;
+
+        } 
                         
     }
 
@@ -48,14 +145,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.3.0/uicons-thin-straight/css/uicons-thin-straight.css'>
-    <link href="../styles/login.css" rel="stylesheet">
+    <link href="../styles/login.css" rel="stylesheet" />
+
     <title>Login</title>
 </head>
 <body>
     <header>
         <nav>
             <div>
-                <a href="./index.html">
+                <a href="../index.html">
                     <h1>CarpoolDZ</h1>
                 </a>
             </div>
