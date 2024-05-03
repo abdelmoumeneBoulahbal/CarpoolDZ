@@ -97,7 +97,7 @@ if(isset($_POST["register"])){
 
             session_start();
 
-            header("Location: ../../../pages/signup-success.html");
+            header("Location:  ../pages/driverPages/add-journ-success.php");
             exit; // Important to prevent further execution
         } catch (mysqli_sql_exception $e) {
             die("Execution Failed to send data: " . $e->getMessage());

@@ -98,7 +98,7 @@
 
                 <div class="dropdown-menu" id="myDropdown" >
                     <ul class="dropdown-menu-list">
-                        <a href="../pages/Addjourney.html">
+                        <a href="../pages/driverPages/Addjourney.php">
                             <li class="add-jrn">Add Journey</li>
                         </a>
                         <a href="../pages/Profile-Driver.php">

@@ -8,7 +8,7 @@
 
         $sql = "SELECT * FROM driver
                 WHERE DriverID = {$_SESSION["driver_id"]}
-        ";
+        ";        
 
         $result = $mysqli->query($sql);
         
@@ -55,7 +55,22 @@
     }
     
 
-    
+    $trip_sql = "SELECT * FROM trip 
+                    WHERE DriverID = ?
+                    ";
+        
+
+    //Driver Trips
+    $driverID = $_SESSION["driver_id"];
+    $stmt = $mysqli->prepare($trip_sql);
+    $stmt->bind_param("i", $driverID);
+    $stmt->execute();
+
+    $result_trips = $stmt->get_result();
+
+
+
+
 ?>
 
 
@@ -115,14 +130,14 @@
 
     <section>
 
-            <div class="left-side">
+        <div class="left-side">
             <h2 class="h2">My Profile</h2>
                 <?php if (isset($user)): ?>
 
                     <p>Name : <span class="name"><?= htmlspecialchars($user["name"]) ?></span></p>
                     <p>Email : <span class="email"><?= htmlspecialchars($user["email"]) ?></span></p>
                     <p>Contact : <span class="phone">0<?= htmlspecialchars($user["phone"]) ?> </span></p>
-                    <p>Experience: <span class="experience"><?= htmlspecialchars($user["experience"]) ?> years </span></p>
+                    <p>Experience: <span class="experience" style="color: <?php echo $drivingLevel['color']; ?>"><?= htmlspecialchars($user["experience"]) ?> years </span></p>
                     <div class="hover-container">
                         <p class="skill-list-hover">Driving Category: 
                             <span class="level" style="color: <?php echo $drivingLevel['color']; ?>">
@@ -155,55 +170,48 @@
                     <a href="../index.html" class="signup-link">Signup</a>
                 </p> 
                 <?php endif; ?>  
-            </div>
 
-    </div>
+        </div>
     
 
 
         <div class="right-side">
             <h2>My journeys</h2>
             
-                <a href="./Addjourney.html">
-                    <button class="newjourbtn">
+                <a href="./driverPages/Addjourney.php" class="newjourbtn">
                         New Journey
-                    </button>
                 </a>
 
             <div class="table-info">
-                <div class="row">
-                    <p>2/2/23</p>
-                    <p>8h</p>
-                    <p>Annaba/Setif</p>
+                <?php if ($result_trips->num_rows > 0): ?>
+                    <?php while ($row = $result_trips->fetch_assoc()): ?>
+                    <div class="row">
+                        <p>
+                            <?php echo htmlspecialchars($row["date"]) ?>
+                        </p>
+                        <p style="text-align: center;">
+                        <?php
 
-                    <button>
-                        <a href="./Manage.html">
+                            // Parse duration string into DateTime object
+                            $duration = new DateTime($row["duration"]);
+                                        
+                            // Get the hours component from the duration
+                            $hours = $duration->format('H');
+                            
+                            echo $hours . "h";
+                            ?>
+                        </p>
+                        <p><?php echo htmlspecialchars($row["departureLocation"]) ?>/<?php echo htmlspecialchars($row["arrivalLocation"]) ?></p>
+
+                        <a href="./driverPages/Manage.php">
                             Manage
                         </a>
-                    </button>
-                </div>
-                <div class="row">
-                    <p>2/2/23</p>
-                    <p>8h</p>
-                    <p>Annaba/Setif</p>
+                    </div>
+                    <?php endwhile ?>
+                <?php endif ?>
+       
+                
 
-                    <button>
-                        <a href="#">
-                            Manage
-                        </a>
-                    </button>
-                </div>
-                <div class="row">
-                    <p>2/2/23</p>
-                    <p>8h</p>
-                    <p>Annaba/Setif</p>
-
-                    <button>
-                        <a href="#">
-                            Manage
-                        </a>
-                    </button>
-                </div>
             </div>
         
         </div>

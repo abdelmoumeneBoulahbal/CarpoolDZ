@@ -4,11 +4,11 @@
 
     if (isset($_SESSION["driver_id"])){
 
-        $mysqli = require __DIR__ ."../../../database.php";
+        $mysqli = require __DIR__ . '../../../database.php';
 
         $sql = "SELECT * FROM driver
                 WHERE DriverID = {$_SESSION["driver_id"]}
-        ";
+        ";        
 
         $result = $mysqli->query($sql);
         
@@ -19,6 +19,7 @@
 
         $drivingLevel = handleLevel($exp);
     };
+
 
     function handleLevel($exp){
         $level = ""; 
@@ -52,7 +53,7 @@
         
         return array("level" => $level, "color" => $color);
     }
-?>
+?>    
 
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +66,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">       
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.3.0/uicons-thin-straight/css/uicons-thin-straight.css'>
     
-    <link href="../../styles/driver/driver-pages/addjourney.css" rel="stylesheet">
+    <link href="../../styles/driver/driver-pages/addsuccess.css" rel="stylesheet">
     <title>Add Journey</title>
 </head>
 <body>
@@ -107,31 +108,32 @@
         </nav>
     </header>
 
-    <section>
-        <h2>Publish a journey</h2>
-        <form method="post" action="../../php/add-journey.php" class="container">
-            <label for="date">Date</label><br>
-            <input type="date" name="date" id="date">
-            <input type="number" name="number_seats" id="nmb-seats" placeholder="Places"><br>
-            <input type="text" name="depart_loca" id="dep-loc" placeholder="Departure">
-            <input type="time" name="depart_time" id="dep-time" placeholder="Time">
-            <br>
-            <input type="text" name="arriv_loca" id="arr-loc" placeholder="Arrival">
-            <input type="time" name="arriv_time" id="arr-time" placeholder="Time">
-            <br>
-            <input type="text" name="stop1" id="stop1" placeholder="Stop 1">
-            <input type="text" name="stop2" id="stop2" placeholder="Stop 2">
-            <br>
-            <input type="number" name="price" id="price" placeholder="Price">
-            <input type="text" name="filters" id="filter" placeholder="Filters">
-            <br>
-            <button name="register">
-                Register
-            </button>
-        </form>
+    <div class="success-login">
+        <h2>A new Journey has been added Successfully</h2>
+        <a href="../Profile-Driver.php">Manage it now</a>
+    </div>
 
-    </section>
-
-    <script src="../../scripts/script.js"></script>
 </body>
+<footer>
+    <div>
+        <h3>Contact:</h3>
+        <p>Tel: 99 99 99 99</p>
+        <p>Mail: abcdefj@gmail.com</p>
+        <p>Address : Annaba, Sidi Amar, 5420</p>
+    </div>
+    <div>
+        <h3>
+            Quick links:
+        </h3>
+        <a>Register</a>
+        <a>Contact Us</a>
+        <a>About us</a>
+    </div>
+    <div>
+        <h3>Miscellaneous information:</h3>
+        <a>Our partners</a>
+        <a>Our regional headquarters</a>
+    </div>
+
+</footer>
 </html>

@@ -385,8 +385,9 @@ p:hover {
     display: flex;
     color: rgb(255, 255, 255);
     border: 2px solid white;
-    height: 50px;
     align-items: center;
+    animation: par 1.3s ease;
+
 
 }
 
@@ -394,17 +395,20 @@ p:hover {
     border: 1px solid white;
     background-color: #e2d6ffc6;
     font-weight: bold;
-    padding: 15px;
+    padding: 20px;
     color: rgb(19, 55, 113);
-    width: 150px;
+    width: 200px;
+    text-align: center;
+
+    font-size: 1rem;
     border-radius: 5px;
 }
 
-.row button{
+.row a{
     color: white;
     background-color: var(--blue);
     
-    border: none;
+    border: 3px solid transparent;
     border-radius: 20px;
 
     padding: 15px;
@@ -414,18 +418,32 @@ p:hover {
     margin-left: 21px;
 
     font-weight: bold;
+
+    transition: all .6s ease;
+
+    font-size: 1rem;
+}
+.row a:hover{
+    background-color: rgba(19, 143, 192, 0.563);
+    box-shadow: 0px 0px 20px var(--blue);
+    border: 3px solid var(--blue);
+    cursor:pointer;
+}
+.row a{
+    cursor:pointer;
 }
 
 .newjourbtn{
     color: white;
-    background-color: var(--blue);
+    background-color: var(--pink);
     
     border: none;
     border-radius: 20px;
-
+    
+    border: 3px solid transparent;
     padding: 12px;
 
-    width: 200px;
+    width: 300px;
     font-size: 1.2rem;
     font-weight: bold;
 
@@ -434,9 +452,16 @@ p:hover {
     display: flex;
 
     margin-bottom: 20px;
+    transition: all .6s ease;
+
+    animation: par 1.3s ease;
 }
 .newjourbtn:hover{
     cursor:pointer;
+    background-color: rgba(211, 32, 56, 0.586);
+    box-shadow: 0px 0px 20px var(--pink);
+    border: 3px solid var(--pink);
+    color: rgba(255, 255, 255, 0.656);
 }
 
 
@@ -533,7 +558,7 @@ footer p, a{
     color: white;
 
     top: 695px;
-    right: 400px;
+    right: 450px;
 
     border-radius: 20px;
 
@@ -617,8 +642,10 @@ footer p, a{
   color: #cc8602; /* Orange */
 }
 
-.hover-container:hover .skill-list,
-.skill-list:hover {
+.skill-list-hover:hover{
     cursor: pointer;
+}
+.hover-container:hover .skill-list {
     display: block;
+    
 }
