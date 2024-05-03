@@ -97,7 +97,29 @@ nav h1{
     cursor: pointer;
 
 }
+.info-top-div{
+    text-align: center !important;
+}
+.level-header{
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: all .5s ease;
+}
+.level-header:hover{
+    font-weight: bold;
+    cursor: pointer;
+}
 
+.dropdown-arrow{
+
+    margin-left: 20px;
+    text-align: center;
+
+    font-size: 1.2rem;
+    cursor: pointer;
+    
+    position: relative;
+}
 
 
 .dropdown-arrow{

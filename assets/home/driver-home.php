@@ -13,7 +13,45 @@
         $result = $mysqli->query($sql);
         
         $user = $result->fetch_assoc();
+
+        $exp =  $user["experience"];
+
+        $drivingLevel = handleLevel($exp);
     }
+
+    function handleLevel($exp){
+        $level = ""; 
+        $color = "";
+        
+        if($exp == 1) {
+            $level = "Novice";
+            $color = "#075182"; // Dark Blue
+        } elseif($exp == 2) {
+            $level = "Beginner";
+            $color = "rgb(255, 0, 55)"; // Light Pink
+        } elseif($exp > 2 && $exp <= 5) {
+            $level = "Intermediate";
+            $color = "rgb(140, 109, 213)"; // Light Violet
+        } elseif($exp > 5 && $exp <= 10) {
+            $level = "Proficient";
+            $color = "#6c36d7"; // Dark Violet
+        } elseif($exp > 10 && $exp <= 15) {
+            $level = "Experienced";
+            $color = "rgb(4,181,194)"; // Primary Color
+        } elseif($exp > 15 && $exp <= 20) {
+            $level = "Seasoned";
+            $color = "#800080"; // Purple
+        } elseif($exp > 20 && $exp <= 30) {
+            $level = "Expert";
+            $color = "rgba(211, 32, 56, 0.863)"; // Pink
+        } elseif($exp > 30) {
+            $level = "Veteran";
+            $color = "#FFA500"; // Orange
+        }
+        
+        return array("level" => $level, "color" => $color);
+    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +85,12 @@
             </div>
 
             <div class="menu-container">
-                <p class="name-header"><?= htmlspecialchars($user["name"]) ?></p>
+                 <div class="info-top-div">
+                    <p class="name-header"><?= htmlspecialchars($user["name"]) ?></p><br>
+                    <p class="level-header" style="color: <?php echo $drivingLevel['color']; ?>">
+                        <?php echo $drivingLevel['level']; ?>
+                    </p>
+                </div>
                 <a href="../pages/Profile-Driver.php">
                     <img src="../images/avatar/driver (2).png" class="avatar-driver">
                 </a>

@@ -4,7 +4,7 @@
 
     if (isset($_SESSION["driver_id"])){
 
-        $mysqli = require __DIR__ ."../../database.php";
+        $mysqli = require __DIR__ . '../../database.php';
 
         $sql = "SELECT * FROM driver
                 WHERE DriverID = {$_SESSION["driver_id"]}
@@ -13,7 +13,49 @@
         $result = $mysqli->query($sql);
         
         $user = $result->fetch_assoc();
+
+
+        $exp =  $user["experience"];
+
+        $drivingLevel = handleLevel($exp);
+    };
+
+
+    function handleLevel($exp){
+        $level = ""; 
+        $color = "";
+        
+        if($exp == 1) {
+            $level = "Novice";
+            $color = "#075182"; // Dark Blue
+        } elseif($exp == 2) {
+            $level = "Beginner";
+            $color = "rgb(255, 0, 55)"; // Light Pink
+        } elseif($exp > 2 && $exp <= 5) {
+            $level = "Intermediate";
+            $color = "rgb(140, 109, 213)"; // Light Violet
+        } elseif($exp > 5 && $exp <= 10) {
+            $level = "Proficient";
+            $color = "#6c36d7"; // Dark Violet
+        } elseif($exp > 10 && $exp <= 15) {
+            $level = "Experienced";
+            $color = "rgb(4,181,194)"; // Primary Color
+        } elseif($exp > 15 && $exp <= 20) {
+            $level = "Seasoned";
+            $color = "#800080"; // Purple
+        } elseif($exp > 20 && $exp <= 30) {
+            $level = "Expert";
+            $color = "rgba(211, 32, 56, 0.863)"; // Pink
+        } elseif($exp > 30) {
+            $level = "Veteran";
+            $color = "#FFA500"; // Orange
+        }
+        
+        return array("level" => $level, "color" => $color);
     }
+    
+
+    
 ?>
 
 
@@ -43,13 +85,18 @@
             </div>
 
             <div class="menu-container">
-                <p class="name-header"><?= htmlspecialchars($user["name"]) ?></p>
+                <div class="info-top-div">
+                    <p class="name-header"><?= htmlspecialchars($user["name"]) ?></p><br>
+                    <p class="level-header" style="color: <?php echo $drivingLevel['color']; ?>">
+                        <?php echo $drivingLevel['level']; ?>
+                    </p>
+                </div>
                 <img src="../images/avatar/driver (2).png" class="avatar-driver">
                 <img src="../images/icons/angle-small-down.png"  class="dropbtn" id="arrow">
 
                 <div class="dropdown-menu" id="myDropdown">
                     <ul class="dropdown-menu-list">
-                        <a href="../driver pages/Addjourney.html">
+                        <a href="../pages/driverPages/Addjourney.php">
                             <li class="add-jrn">Add Journey</li>
                         </a>
                         <a href="../home/driver-home.php">
@@ -75,10 +122,31 @@
                     <p>Name : <span class="name"><?= htmlspecialchars($user["name"]) ?></span></p>
                     <p>Email : <span class="email"><?= htmlspecialchars($user["email"]) ?></span></p>
                     <p>Contact : <span class="phone">0<?= htmlspecialchars($user["phone"]) ?> </span></p>
-                    <p>Experience: <span class="experience"><?= htmlspecialchars($user["experience"]) ?> </span></p>
-                    <p>Cancels/Delays: <span>2/10</span></p>
-                    <p>Driving Category: <span>Used to</span></p>
-                    <p>Certified: <span>No</span></p>
+                    <p>Experience: <span class="experience"><?= htmlspecialchars($user["experience"]) ?> years </span></p>
+                    <div class="hover-container">
+                        <p class="skill-list-hover">Driving Category: 
+                            <span class="level" style="color: <?php echo $drivingLevel['color']; ?>">
+                                <?php echo $drivingLevel['level']; ?>
+                            </span>    
+                        </p>
+                        <div class="skill-list">
+                            <h3 style="font-weight:bold; font-size:13px; color:white;">Note : This Ranking System is based purely on years that the user has spent driving</h3>
+                            <ul>
+                                <li class="novice">● Novice: "New to the road – gaining confidence." (0-1&nbsp;years).</li>
+                                <li class="beginner">● Beginner: "Starting to navigate with ease." (1-2&nbsp;years).</li>
+                                <li class="intermediate">● Intermediate: "Building skills and awareness." (2-5&nbsp;years).</li>
+                                <li class="proficient">● Proficient: "Confident and capable behind the wheel." (5-10&nbsp;years).</li>
+                                <li class="experienced">● Experienced: "Seasoned driver with ample road knowledge." (10-15&nbsp;years).</li>
+                                <li class="seasoned">● Seasoned: "Master of the road – adept at handling any situation." (15-20&nbsp;years).</li>
+                                <li class="expert">● Expert: "Exceptional skill and precision in driving." (20+&nbsp;years).</li>
+                                <li class="veteran">● Veteran: "Decades of experience – a true road warrior." (30+&nbsp;years).</li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+
+                    <p>Cancels/Delays: <span class="delays">2/10</span></p>
+                    <p>Certified: <span class="certified">No</span></p>
 
                 <?php else: ?>
                 <p class="message">
@@ -141,7 +209,9 @@
         </div>
     </section>
 
-    <script src="../scripts/script.js"></script>
+    <script src="../scripts/script.js">
+
+    </script>
 
 </body>
 </html>

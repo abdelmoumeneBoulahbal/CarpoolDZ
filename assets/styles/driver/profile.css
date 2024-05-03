@@ -96,8 +96,18 @@ nav h1{
     cursor: pointer;
 
 }
-
-
+.info-top-div{
+    text-align: center;
+}
+.level-header{
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: all .5s ease;
+}
+.level-header:hover{
+    font-weight: bold;
+    cursor: pointer;
+}
 
 .dropdown-arrow{
 
@@ -326,7 +336,7 @@ h2{
     transition: all .5s ease;
     animation: par 1s ease;
 }
-.left-side span{
+.name, .email, .phone, .experience, .certified, .delays, .level{
 
     margin: auto;
 
@@ -503,8 +513,112 @@ footer p, a{
 }
 
 
-
 .signup-link:hover, .login-link:hover{
     border: 3px solid var(--lightpink);
     border-radius: 20px;
+}
+
+.skill-list-hover{
+    position: relative;
+}
+.skill-list{
+    position: absolute;
+
+    z-index: 999;
+
+    padding: 20px;
+
+    background-color: rgb(211, 206, 206);
+
+    color: white;
+
+    top: 695px;
+    right: 400px;
+
+    border-radius: 20px;
+
+    text-align: left !important;
+
+    width: 580px;
+    height: 310px;
+
+    animation: skill 1s ease;
+
+    display: none;
+    
+}
+
+@keyframes skill {
+    0%{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+
+.skill-list li{
+    list-style: none;
+    align-items: baseline;
+
+    font-size: 13px;
+
+    line-height: 1.8rem;
+
+    font-weight: 550;
+    transition: all .5s ease;
+}
+.skill-list ul{
+    padding-top: 5px;
+}
+.skill-list li:hover{
+
+    padding-left: 20px;
+    cursor: pointer;
+
+    font-weight: bold;
+
+    font-size: 15px;
+}
+.novice {
+    color: #075182; /* Dark Blue */
+    
+  }
+
+
+.beginner {
+  color: rgb(255, 0, 55); /* Light Pink */
+}
+
+.intermediate {
+  color: rgb(140, 109, 213); /* Light Violet */
+}
+
+.proficient {
+  color: #6c36d7; /* Dark Violet */
+}
+
+.experienced {
+  color: rgb(4,181,194); /* Primary Color */
+}
+
+.seasoned {
+  color: #800080; /* Purple */
+}
+
+.expert {
+  color: rgb(211, 32, 56); /* Pink */
+}
+
+.veteran {
+  color: #cc8602; /* Orange */
+}
+
+.hover-container:hover .skill-list,
+.skill-list:hover {
+    cursor: pointer;
+    display: block;
 }
