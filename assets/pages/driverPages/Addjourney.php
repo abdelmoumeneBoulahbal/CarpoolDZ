@@ -96,6 +96,9 @@
                         <a href="../Profile-Driver.php">
                             <li>Profile</li>
                         </a>
+                        <a href="../../home/driver-home.php">
+                           <li>Search</li>
+                        </a>
                         <a href=" ../../../../php/logout.php">
                             <li>Log out</li>
                         </a>

@@ -82,7 +82,38 @@ nav h1{
 
 
 
+.avatar-driver{
+    width: 70px;
+    background: rgb(255, 255, 255);
+    padding: 2px;
+    border-radius: 40px;
+}
 
+.name-header{
+    font-size: 1.8rem;
+    margin-right: 20px;
+    transition: all .5s ease;
+
+    color: whitesmoke;
+}
+.name-header:hover{
+    color: whitesmoke;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+.info-top-div{
+    text-align: center;
+}
+.level-header{
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: all .5s ease;
+}
+.level-header:hover{
+    font-weight: bold;
+    cursor: pointer;
+}
 
 
 .dropdown-arrow{
@@ -613,4 +644,9 @@ button:hover{
 
 .left-info{
     word-spacing: 3px;
+}
+
+.name{
+    width:50px;
+    margin-right: 50px;
 }

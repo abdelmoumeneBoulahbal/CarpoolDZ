@@ -14,6 +14,8 @@
         
         $user = $result->fetch_assoc();
     }
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -77,53 +79,50 @@
                 <img src="../images/hero-img.jpg" />
             </div>
             <div class="input-div" >
-                <form class="input-form" id="search">
-                    <datalist id="depature">
-                      <option value="Internet Explorer">
-                      <option value="Firefox">
-                      <option value="Google Chrome">
-                      <option value="Opera">
-                      <option value="Safari">
-                    </datalist>
-                    <input class="depature" list="depature" placeholder="Depature" id="search">
-    
-                    <datalist id="distination">
+                <form class="input-form" id="search" method="post" action="../pages/search-passenger.php">
+                    <div class="bg-search">
+                        <datalist id="depature">
                         <option value="Internet Explorer">
                         <option value="Firefox">
                         <option value="Google Chrome">
                         <option value="Opera">
                         <option value="Safari">
-                    </datalist>
-                    <input list="distination" placeholder="Distination" id="search"> 
-    
-                    <datalist id="date">
-                        <option value="Internet Explorer">
-                        <option value="Firefox">
-                        <option value="Google Chrome">
-                        <option value="Opera">
-                        <option value="Safari">
-                    </datalist>
-                    <input list="date" placeholder="Date" id="search">
-    
-                   
-                    <datalist id="passenger">
-                        <option value="Internet Explorer">
-                        <option value="Firefox">
-                        <option value="Google Chrome">
-                        <option value="Opera">
-                        <option value="Safari">
-                    </datalist> 
-                    <input list="passenger" class="passenger" placeholder="Passenger" id="search">
+                        </datalist>
+                        <input name="departure" type="text" class="depature" list="depature" placeholder="Depature" id="search">
+        
+                        <datalist id="destination">
+                            <option value="Internet Explorer">
+                            <option value="Firefox">
+                            <option value="Google Chrome">
+                            <option value="Opera">
+                            <option value="Safari">
+                        </datalist>
+                        <input name="destination" type="text" list="destination" placeholder="Destination" id="search"> 
+        
+                        <datalist id="date">
+                            <option value="Internet Explorer">
+                            <option value="Firefox">
+                            <option value="Google Chrome">
+                            <option value="Opera">
+                            <option value="Safari">
+                        </datalist>
+                        <input name="date" type="date" list="date" placeholder="Date" id="search">
+        
                     
+                        <datalist id="seats">
+                            <option value="Internet Explorer">
+                            <option value="Firefox">
+                            <option value="Google Chrome">
+                            <option value="Opera">
+                            <option value="Safari">
+                        </datalist> 
+                        <input name="seats" type="number" list="seats" class="passenger" placeholder="Seats" id="search">
+                    </div>
                     
-                    
+                    <button class="search-button" name="search">
+                            Search
+                    </button>
                 </form>
-                
-                <button class="search-button">
-                    <a href="./pages/Search.html">
-                        Search
-                    </a>
-                </button>
             </div>
         </section>
         <!--End-->

@@ -2,6 +2,8 @@
     session_start();
 
     $is_invalid = false;
+    
+    $_SESSION["isLoggedIn"] = false;
 
     if($_SERVER["REQUEST_METHOD"] === "POST"){
 
@@ -23,7 +25,8 @@
                         session_start();
                         session_regenerate_id();
                         $_SESSION["passenger_id"] = $user["passengerID"];
-                                    
+                        $_SESSION["isLoggedIn"] = true; // Set isLoggedIn to true
+
                         header("Location: Profile-Pass.php");
                         exit;
                     }
@@ -45,7 +48,8 @@
                         session_start();
                         session_regenerate_id();
                         $_SESSION["driver_id"] = $user["DriverID"];
-                        
+                        $_SESSION["isLoggedIn"] = true; // Set isLoggedIn to true
+
                         header("Location: Profile-Driver.php");
                         exit;
                     }
@@ -75,7 +79,7 @@
                         session_start();
                         session_regenerate_id();
                         $_SESSION["passenger_id"] = $user["passengerID"];
-                                    
+                        $_SESSION["isLoggedIn"] = true; // Set isLoggedIn to true
                         header("Location: Profile-Pass.php");
                         exit;
                     }
@@ -102,7 +106,7 @@
                             session_start();
                             session_regenerate_id();
                             $_SESSION["driver_id"] = $user["DriverID"];
-                                        
+                            $_SESSION["isLoggedIn"] = true; // Set isLoggedIn to true
                             header("Location: Profile-Driver.php");
                             exit;
                         }
@@ -120,7 +124,7 @@
                     session_start();
                     session_regenerate_id();
                     $_SESSION["driver_id"] = $user["DriverID"];
-                                
+                    $_SESSION["isLoggedIn"] = true; // Set isLoggedIn to true
                     header("Location: Profile-Driver.php");
                     exit;
                 }

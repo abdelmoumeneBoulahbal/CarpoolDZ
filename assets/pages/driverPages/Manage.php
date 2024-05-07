@@ -95,6 +95,9 @@
 
                 <div class="dropdown-menu" id="myDropdown">
                     <ul class="dropdown-menu-list">
+                        <a href="./Addjourney.php">
+                            <li>Add Journey</li>
+                        </a>
                         <a href="../../home/driver-home.php">
                             <li>Search</li>
                         </a>
