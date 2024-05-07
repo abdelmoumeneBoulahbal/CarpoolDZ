@@ -275,8 +275,40 @@ nav h1{
   margin: auto;
  padding-left: 50px;
 
- 
+ animation: goup 1s ease-in;
 }
+.title{
+    animation: godown 1s ease-in;
+}
+
+@keyframes godown {
+    0%{
+        opacity: 0;
+        transform: translateY(-30px);
+    }    
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+}
+
+
+
+
+
+@keyframes goup {
+    0%{
+        opacity: 0;
+        transform: translateY(100px);
+    }    
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+}
+
 .container label{
     font-weight: 400;
     margin-left: 10px;

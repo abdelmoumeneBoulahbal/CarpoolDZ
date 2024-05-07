@@ -288,9 +288,22 @@ table{
     font-size: 1.2rem;
 
     margin-left: 270px;
+
+   
+}
+@keyframes slide-in {
+    0%{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
 }
 
 td{
+    animation: slide-in 1s ease-in;
     border-radius: 3px;
     background: #9475d2;
 

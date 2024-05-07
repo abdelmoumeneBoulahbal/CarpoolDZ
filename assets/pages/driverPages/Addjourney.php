@@ -111,7 +111,7 @@
     </header>
 
     <section>
-        <h2>Publish a journey</h2>
+        <h2 class="title">Publish a journey</h2>
         <form method="post" action="../../php/add-journey.php" class="container">
             <label for="date">Date</label><br>
             <input type="date" name="date" id="date">

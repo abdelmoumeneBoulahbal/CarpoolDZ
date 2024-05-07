@@ -151,7 +151,15 @@
                                 echo $formattedDuration; ?>    
                         </td>
                         <td><?php echo $trip["departureLocation"]."/".$trip["arrivalLocation"] ?> </td>
-                        <td><?php echo $trip["statusPassenger"] ?></td>
+                        <td class="<?php if($trip["statusPassenger"]=="Accepted") : echo "green"; 
+                                         elseif($trip["statusPassenger"]=="Rejected") : echo "red";
+                                         elseif($trip["statusPassenger"]=="Pending") : echo "darkblue";
+                                    endif;
+                                    ?>">
+                                    <?php 
+                                        echo $trip["statusPassenger"];
+                                    ?>
+                        </td>
                         <?php endwhile;?>
                     </tr> 
                     

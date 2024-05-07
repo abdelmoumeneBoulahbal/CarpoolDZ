@@ -365,6 +365,8 @@ table{
     font-size: 1.2rem;
 
     margin-left: 100px;
+
+    animation: slide .7s ease-in;
 }
 th{
     border-radius: 5px;
@@ -382,6 +384,19 @@ td{
     padding: 12px;
     width: 170px;
     border: 1px solid rgb(255, 255, 255) ;
+
+    
+}
+
+@keyframes slide {
+    0%{
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
 }
 
 /* Footer */
@@ -425,6 +440,26 @@ footer p, a{
     margin-bottom: 6px;
 }
 /* End Footer */
+
+
+.green{
+    font-weight: bold;
+    color: rgb(72, 243, 255);
+}
+.darkblue{
+    font-weight: bold;
+    color: rgb(0, 76, 127);
+}
+.red{
+    font-weight: bold;
+    color: var(--pink);
+}
+
+
+
+
+
+
 
 
 .message a{
