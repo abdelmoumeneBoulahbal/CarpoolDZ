@@ -117,7 +117,7 @@ nav h1{
 
     
     position: absolute;
-    top: 100px !important;
+    top: 135px !important;
     right: -50px !important;
 
     font-size: 1.2rem;
@@ -463,7 +463,7 @@ label{
     color: white;
 
     width: 400px;
-    height: 185px;
+    height: 210px;
 }
 
 .trip-card-top, .trip-card-bottom{
@@ -474,7 +474,7 @@ label{
 
     align-items: center;
     margin-top: 23px;
-    margin-left: -10px;
+    margin-left: -5px;
 }
 
 
@@ -506,13 +506,13 @@ label{
 }
 .dot2{
 
-    top: 84px;
+    top: 102px;
     left: 57px;
 }
 .vline{
 
     border-left: 2px solid rgb(255, 255, 255);
-    height: 52px;
+    height: 75px;
     position: absolute;
 
     top: 33px;
@@ -522,6 +522,8 @@ label{
 .hours{
     margin-right: 25px;
     font-size: 0.8rem;
+
+    margin-top: 10px;
 }
 .departure{
     margin-bottom: 6px;
@@ -531,18 +533,29 @@ label{
     opacity: .7;
 }
 
+.stops-div{
+    margin: 0px;
 
-.loc-dep{
-    margin-bottom: 37.5px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3rem;
 
-    font-size: 0.9rem;
+    padding-left: 4px;
 }
 
-
+.arr-loc{
+    margin-top: 55px;
+}
+.arr-loc-with2{
+    margin-top: 15px;
+}
+.arr-loc-with1{
+    margin-top: 35px;
+}
 .name{
 
     margin-left: 22px;
-    margin-right: 50px;
+    margin-right: 60px;
 }
 
 .bus-icon{
@@ -562,7 +575,47 @@ label{
 
 
 /* End right side*/
-
-
-
 /* End SRS*/
+
+
+/* Footer */
+footer{
+
+    width: 100%;
+
+    margin-top: 100px;
+
+    display: grid;
+
+    padding: 50px;
+
+    align-items: center;
+    justify-content: space-around;
+
+    background-color: var(--darkblue);
+
+    color: white;
+
+    grid-template-columns: auto auto auto;
+}
+
+footer a{
+    display: flex;
+    cursor: pointer;
+    text-decoration: none;
+    
+    
+}
+
+footer a:hover{
+    text-shadow: 0px 0px 10px white;
+                
+}
+
+footer h3{
+    margin-bottom: 15px;
+}
+footer p, a{
+    margin-bottom: 6px;
+}
+/* End Footer */

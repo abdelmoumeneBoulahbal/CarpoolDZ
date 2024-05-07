@@ -99,7 +99,7 @@
                         <a href="../../home/driver-home.php">
                            <li>Search</li>
                         </a>
-                        <a href=" ../../../../php/logout.php">
+                        <a href="../../php/logout.php">
                             <li>Log out</li>
                         </a>
                     </ul>
@@ -137,4 +137,29 @@
 
     <script src="../../scripts/script.js"></script>
 </body>
+
+
+<footer>
+    <div>
+        <h3>Contact:</h3>
+        <p>Tel: 99 99 99 99</p>
+        <p>Mail: abcdefj@gmail.com</p>
+        <p>Address : Annaba, Sidi Amar, 5420</p>
+    </div>
+    <div>
+        <h3>
+            Quick links:
+        </h3>
+        <a>Register</a>
+        <a>Contact Us</a>
+        <a>About us</a>
+    </div>
+    <div>
+        <h3>Miscellaneous information:</h3>
+        <a>Our partners</a>
+        <a>Our regional headquarters</a>
+    </div>
+
+</footer>
+
 </html>

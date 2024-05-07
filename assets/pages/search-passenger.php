@@ -160,7 +160,7 @@
 
         <div class="right-side-container">
             <?php while($row = $result->fetch_assoc()): ?>
-                <a href="Journeydetails-passenger.php?trip_id=<?php echo $row['tripID']; ?>&driver_id=<?php echo $row['DriverID']; ?>" name="trip_card"onclick="reserveTrip();">
+                <a href="Journeydetails-passenger.php?trip_id=<?php echo $row['tripID']; ?>&driver_id=<?php echo $row['DriverID']; ?>" name="trip_card">
                     
                     <div class="trip-card">
 
@@ -194,7 +194,20 @@
                                 <p class="loc-dep">
                                     <?php echo $row["departureLocation"]; ?>
                                 </p>
-                                <p class="loc-arr">
+                                <div class="stops-div">
+                                    <p>
+                                        <?php echo $row["stop1"] ?>
+                                    </p>
+                                    <p class="stop2">
+                                        <?php echo $row["stop2"] ?>  
+                                    </p>
+                                </div>
+                                
+                                <p class= "<?php if($row["stop1"] && $row["stop2"]): echo "arr-loc-with2";  
+                                                    elseif($row["stop1"] || $row["stop2"]): echo "arr-loc-with1";
+                                                    else: echo "arr-loc";
+                                            endif; ?>">
+
                                     <?php echo $row["arrivalLocation"]; ?>
                                 </p>
                                 <span class="dot2"></span>
@@ -242,5 +255,27 @@
 
     <script src="../scripts/script.js"></script>
 </body>
+<footer>
+    <div>
+        <h3>Contact:</h3>
+        <p>Tel: 99 99 99 99</p>
+        <p>Mail: abcdefj@gmail.com</p>
+        <p>Address : Annaba, Sidi Amar, 5420</p>
+    </div>
+    <div>
+        <h3>
+            Quick links:
+        </h3>
+        <a>Register</a>
+        <a>Contact Us</a>
+        <a>About us</a>
+    </div>
+    <div>
+        <h3>Miscellaneous information:</h3>
+        <a>Our partners</a>
+        <a>Our regional headquarters</a>
+    </div>
+
+</footer>
 </html>
 

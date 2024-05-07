@@ -13,7 +13,39 @@
         $result = $mysqli->query($sql);
         
         $user = $result->fetch_assoc();
-    }
+
+        $passenger_id = $user["passengerID"];
+
+        try {
+            /*
+            $sql = "SELECT * 
+            FROM trip 
+            WHERE tripID IN (
+                SELECT tripID 
+                FROM passengerjourneys 
+                WHERE passengerID = ?
+            )";
+            */
+
+            $sql = "SELECT trip.*, passengerjourneys.statusPassenger
+                FROM trip 
+                INNER JOIN passengerjourneys ON trip.tripID = passengerjourneys.tripID
+                WHERE passengerjourneys.passengerID = ?";
+
+
+            $stmt = $mysqli->prepare($sql);
+            $stmt->bind_param('s', $passenger_id);
+            
+          
+            $stmt->execute();
+          
+            $result = $stmt->get_result();
+        
+        } catch (Exception $e) {
+            die ("Error: " . $e->getMessage()); 
+        }
+    }    
+
 ?>
 
 <!DOCTYPE html>
@@ -96,21 +128,34 @@
                     <tr>
                         <th>Date</th>
                         <th>Time</th>
-                        <th>Depart/Arrival</th>
+                        <th>Departure/Arrival</th>
                         <th>Status</th>
                     </tr>
+
+                    <?php while($trip = $result->fetch_assoc()): ?>
                     <tr>
-                        <td>1/12/24</td>
-                        <td>1/12/24</td>
-                        <td>1/12/24</td>
-                        <td>1/12/24</td>
-                    </tr>
-                    <tr>
-                        <td>1/12/24</td>
-                        <td>1/12/24</td>
-                        <td>1/12/24</td>
-                        <td>1/12/24</td>
-                    </tr>
+                        <td><?php echo $trip["date"]; ?></td>
+                        <td>
+                                <?php 
+                                // Split the duration into hours, minutes, and seconds
+                                list($hours, $minutes, $seconds) = explode(":", $trip["duration"]);
+
+                                // Convert hours, minutes, and seconds to integers
+                                $hours = intval($hours);
+                                $minutes = intval($minutes);
+
+                                // Format the duration
+                                $formattedDuration = $hours . "h" . sprintf("%02d", $minutes);
+
+                                // Output the formatted duration
+                                echo $formattedDuration; ?>    
+                        </td>
+                        <td><?php echo $trip["departureLocation"]."/".$trip["arrivalLocation"] ?> </td>
+                        <td><?php echo $trip["statusPassenger"] ?></td>
+                        <?php endwhile;?>
+                    </tr> 
+                    
+                
                 </table>
             </div>
         </div>

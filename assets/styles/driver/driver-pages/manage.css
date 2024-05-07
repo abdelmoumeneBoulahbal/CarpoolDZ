@@ -287,24 +287,28 @@ table{
 
     font-size: 1.2rem;
 
-    margin-left: 100px;
+    margin-left: 270px;
 }
 
 td{
     border-radius: 3px;
     background: #9475d2;
 
-    padding: 12px;
-    width: 170px;
+    font-weight: 550;
+    font-size: 2rem;
+
+    height: 100px;
+    padding: 10px;
+    width: 300px;
     border: 1px solid rgb(255, 255, 255) ;
 }
 .button-td{
     background-color: transparent !important;
 }
 .button-td button{
-    width: 45px;
-    padding: 7px;
-
+    width: 70px;
+    padding: 12px;
+    font-size: 1.1rem;
     color: white;
 
     border-radius: 10px;
@@ -324,7 +328,7 @@ td{
     box-shadow: 0px 0px 10px var(--pink);
     border: 2px solid var(--pink);
     transition: all 0.5s ease;
-    padding: 7px;
+  
     cursor: pointer;
 }
 .ok-btn:hover{
@@ -332,10 +336,8 @@ td{
     border: 2px solid var(--primary);
     box-shadow: 0px 0px 10px var(--primary);
     transition: all .4s ease;
-    padding: 7px;
     cursor: pointer;
 }
-
 
 h3{
     margin: auto;
@@ -352,7 +354,7 @@ h2{
     display: flex;
     justify-content: center;
 
-    font-size: 2.2rem;
+    font-size: 2.8rem;
 
     margin-top: 80px;
 }
@@ -374,7 +376,7 @@ h2{
       font-size: 1.4rem;
       font-weight: bold;
   
-      background-color: var(--lightviolet);
+      background-color: var(--primary);
   
       color: white;
   
@@ -388,11 +390,11 @@ h2{
 .return-btn:hover{
     color: #ffffff;
   
-    box-shadow: 0px 0px 40px var(--lightviolet);
+    box-shadow: 0px 0px 40px rgb(4, 181, 194);
 
     cursor: pointer;
 
-    background-color: rgb(150, 125, 210);
+    background-color: rgba(4, 181, 194, 0.611);
 
-    border: 3px solid var(--violet);
+    border: 3px solid var(--primary);
 }

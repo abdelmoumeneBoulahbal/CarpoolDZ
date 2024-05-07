@@ -203,7 +203,7 @@
                         </p>
                         <p><?php echo htmlspecialchars($row["departureLocation"]) ?>/<?php echo htmlspecialchars($row["arrivalLocation"]) ?></p>
 
-                        <a href="./driverPages/Manage.php">
+                        <a href="./driverPages/Manage.php?trip_id=<?php echo $row["tripID"]; ?>&trip_date=<?php echo $row["date"]; ?>&trip_depart=<?php echo $row["departureLocation"]?>&trip_arr=<?php echo $row["arrivalLocation"]?>">
                             Manage
                         </a>
                     </div>

@@ -215,13 +215,12 @@ function handleLevelCurrentProfile($exp2){
         </nav>
 </header>
 
+    <h2>Journey details</h2>
     <section>
-        <h2>Journey details</h2>
 
-        <div class="full-info-div">
             <div class="car-name">
                 <img src="../images/icons/car.png" class="bus-icon">
-                <p class="name">
+                <p class="name">       
                     <?php echo $user["name"]; ?>
                 </p>
             </div>
@@ -259,9 +258,22 @@ function handleLevelCurrentProfile($exp2){
                         <p class="loc-dep">
                             <?php echo $trip_details["departureLocation"]; ?>
                         </p>
-                        <p class="loc-arr">
-                            <?php echo $trip_details["arrivalLocation"]; ?>
-                        </p>
+                        <div class="stops-div">
+                                    <p>
+                                        <?php echo $trip_details["stop1"] ?>
+                                    </p>
+                                    <p class="stop2">
+                                        <?php echo $trip_details["stop2"] ?>  
+                                    </p>
+                                </div>
+                                
+                                <p class= "<?php if($trip_details["stop1"] && $trip_details["stop2"]): echo "arr-loc-with2";  
+                                                    elseif($trip_details["stop1"] || $trip_details["stop2"]): echo "arr-loc-with1";
+                                                    else: echo "arr-loc";
+                                            endif; ?>">
+
+                                    <?php echo $trip_details["arrivalLocation"]; ?>
+                                </p>
                         <span class="dot2"></span>
                     </div>
                 </div>
@@ -281,9 +293,11 @@ function handleLevelCurrentProfile($exp2){
 
             </div>
 
-            <h3 class="option-title">Options:</h3>
-        </div>
-        <div class="details-div">
+            <div>
+                <h3 class="option-title">Options:</h3>
+            </div>
+            
+
             <div class="left-info">
                 <p>Rating: ⭐⭐⭐⭐</p>
                 <p>
@@ -298,28 +312,53 @@ function handleLevelCurrentProfile($exp2){
                 <p>Cancels and Delays: 1/20</p>
                 <p>Contact: 0<?php echo $user["phone"] ?></p>
             </div>
+
             <div class="btns">
-                <a href="#">
+                <a href="../php/alert-driver-reservationTry.php">
                     <button class="btn-1">
                         Reservation request
                     </button>
                 </a>
                 <br>
                 <span class="line"></span>
-                <a href="./Search.html">
+                <a href="../php/alert-driver-reservationTry.php">
                     <button class="btn-2">
                         Return
                     </button>
                 </a>
             </div>
+
             <div class="right-info">
                 <p>No smoking</p>
                 <p>Certified driver</p>
                 <p>Direct Route</p>
             </div>
-        </div>
 
     </section>
+
+    
     <script src="../scripts/script.js"></script>
 </body>
+<footer>
+    <div>
+        <h3>Contact:</h3>
+        <p>Tel: 99 99 99 99</p>
+        <p>Mail: abcdefj@gmail.com</p>
+        <p>Address : Annaba, Sidi Amar, 5420</p>
+    </div>
+    <div>
+        <h3>
+            Quick links:
+        </h3>
+        <a>Register</a>
+        <a>Contact Us</a>
+        <a>About us</a>
+    </div>
+    <div>
+        <h3>Miscellaneous information:</h3>
+        <a>Our partners</a>
+        <a>Our regional headquarters</a>
+    </div>
+
+</footer>
 </html>

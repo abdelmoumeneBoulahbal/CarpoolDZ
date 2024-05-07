@@ -20,6 +20,51 @@
         $drivingLevel = handleLevel($exp);
     };
 
+   // Check if trip_id is set in the URL
+    if (isset($_GET['trip_id'])) {
+        $trip_id = $_GET['trip_id'];
+        $trip_arr = $_GET['trip_arr'];
+        $trip_dep = $_GET['trip_depart'];
+        $trip_date = $_GET['trip_date'];
+
+        
+        // Include database connection
+        $mysqli = require __DIR__ ."../../../database.php";
+
+        // Query to fetch passenger IDs associated with the given trip ID
+        $sql = "SELECT passengerjourneys.passengerID, passenger.name, passenger.age, passenger.gender 
+                FROM passengerjourneys 
+                INNER JOIN passenger ON passengerjourneys.passengerID = passenger.passengerID
+                WHERE passengerjourneys.tripID = ?
+                AND passengerjourneys.statusPassenger = 'Pending'"    
+            ;
+        
+        // Prepare statement
+        $stmt = $mysqli->prepare($sql);
+        if ($stmt) {
+            // Bind parameters
+            $stmt->bind_param('s', $trip_id);
+            
+            // Execute query
+            $stmt->execute();
+            
+            // Get result
+            $result = $stmt->get_result();
+            
+            // Array to store passenger details
+            $passengerDetails = [];
+            
+            // Fetch passenger details
+            while ($row = $result->fetch_assoc()) {
+                $passengerDetails[] = $row;
+            }
+            
+            // Close statement
+            $stmt->close();
+        }
+    }
+
+
 
     function handleLevel($exp){
         $level = ""; 
@@ -119,54 +164,32 @@
     <section>
 
         <div>
-            <h3>Journey: 20/02/24 Annaba/Setif</h3>
+            <h3>Journey: <?php echo $trip_date. " " . $trip_dep."/".$trip_arr?></h3>
             <div>
                 <table>
+                <?php foreach ($passengerDetails as $passenger): ?>
                     <tr>
-                        <td>Amine</td>
-                        <td>man</td>
-                        <td>27</td>
-                        <td>Setif</td>
+                        <td><?= $passenger['name'] ?></td>
+                        <td><?= $passenger['gender'] ?></td>
+                        <td><?= $passenger['age'] ?></td>
                         <td  class="button-td">
-                            <button class="ok-btn">
-                                OK
-                            </button>
-                            <button class="no-btn">
-                                NO
-                            </button>
+
+                            <a href="../../php/handleStatus.php?trip_id=<?php echo $trip_id; ?>&passenger_id=<?php echo $passenger['passengerID']; ?>&status=<?php echo "Accepted"; ?>">
+                                <button class="ok-btn" name="ok-btn">
+                                    OK
+                                </button>
+                            </a>
+                            <a href="../../php/handleStatus.php?trip_id=<?php echo $trip_id; ?>&passenger_id=<?php echo $passenger['passengerID']; ?>&status=<?php echo "Rejected"; ?>">
+                                <button class="no-btn" name="no-btn">
+                                    NO
+                                </button>
+                            </a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>Yacine</td>
-                        <td>man</td>
-                        <td>77</td>
-                        <td>Setif</td>
-                        <td class="button-td">
-                            <button class="ok-btn">
-                                OK
-                            </button>
-                            <button class="no-btn">
-                                NO
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Nadia</td>
-                        <td>woman</td>
-                        <td>33</td>
-                        <td>Constantine</td>
-                        <td class="button-td">
-                            <button class="ok-btn">
-                                OK
-                            </button>
-                            <button class="no-btn">
-                                NO
-                            </button>
-                        </td>
-                    </tr>
+                    <?php endforeach; ?>
                 </table>
             </div>
-            <a href="./Profile.html">
+            <a href="../Profile-Driver.php">
                 <button class="return-btn">
                     Return
                 </button>
