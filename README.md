@@ -13,7 +13,7 @@ A website developed using HTML, CSS and PHP for booking trips around Algeria, wi
 - **Driver Profiles**: 
   - Drivers can create and manage their trips.
   - Check all the passengers that booked their trips.
-  - Drivers can accpect or deny the passenger based on his profile.
+  - Drivers can accpet or deny the passenger based on his profile.
 - **Passenger Profiles**: Passengers can book trips with specific details such as:
   - Price
   - Inside car rules
@@ -32,6 +32,5 @@ During the development of this project, I gained valuable insights and skills, i
 - **Search Functionality**: Created a simple yet effective search engine for passengers, allowing them to find trips based on their preferences.
 - **User Authentication and Profiles**: Implemented user authentication and profile management, enabling drivers and passengers to interact with the system securely.
 - **Input Management and Validation**: Gained experience in managing and validating user input to ensure data integrity and enhance user experience.
-- **Responsive Design**: Focused on building a user-friendly interface that works seamlessly across various devices and screen sizes.
-   
+
 
