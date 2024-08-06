@@ -32,6 +32,6 @@ During the development of this project, I gained valuable insights and skills, i
 - **Search Functionality**: Created a simple yet effective search engine for passengers, allowing them to find trips based on their preferences.
 - **User Authentication and Profiles**: Implemented user authentication and profile management, enabling drivers and passengers to interact with the system securely.
 - **Input Management and Validation**: Gained experience in managing and validating user input to ensure data integrity and enhance user experience.
-- **Responsive Design**: Focused on building a user-friendly interface that works seamlessly across various devices and screen sizes.
+
    
 
