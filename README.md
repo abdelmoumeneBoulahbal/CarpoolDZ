@@ -6,7 +6,7 @@
 
 
 ## Summary
-A website developed using HTML, CSS and PHP for booking trips around Algeria, with the implementation of user profiles for drivers to create and manage trips, and a passenger profile to book trips with customized details.
+A website developed using HTML, CSS and PHP for booking trips around Algeria, with the implementation of user profiles for drivers to create and manage trips, and passengers profiles to book trips with customized details.
 
 ## Features
 
@@ -32,5 +32,6 @@ During the development of this project, I gained valuable insights and skills, i
 - **Search Functionality**: Created a simple yet effective search engine for passengers, allowing them to find trips based on their preferences.
 - **User Authentication and Profiles**: Implemented user authentication and profile management, enabling drivers and passengers to interact with the system securely.
 - **Input Management and Validation**: Gained experience in managing and validating user input to ensure data integrity and enhance user experience.
-
+- **Responsive Design**: Focused on building a user-friendly interface that works seamlessly across various devices and screen sizes.
+   
 
