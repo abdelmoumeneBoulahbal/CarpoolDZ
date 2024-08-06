@@ -138,7 +138,7 @@
                         <td>
                                 <?php 
                                 // Split the duration into hours, minutes, and seconds
-                                list($hours, $minutes, $seconds) = explode(":", $trip["duration"]);
+                                list($hours, $minutes, $seconds) = explode(":", $trip["departureTime"]);
 
                                 // Convert hours, minutes, and seconds to integers
                                 $hours = intval($hours);
