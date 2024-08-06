@@ -13,7 +13,7 @@ A website developed using HTML, CSS and PHP for booking trips around Algeria, wi
 - **Driver Profiles**: 
   - Drivers can create and manage their trips.
   - Check all the passengers that booked their trips.
-  - Drivers can accpect or deny the passenger based on his profile.
+  - Drivers can accpet or deny the passenger based on his profile.
 - **Passenger Profiles**: Passengers can book trips with specific details such as:
   - Price
   - Inside car rules
