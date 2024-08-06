@@ -6,7 +6,7 @@
 
 
 ## Summary
-A website developed using HTML, CSS and PHP for booking trips around Algeria, with the implementation of user profiles for drivers to create and manage trips, and a passenger profile to book trips with customized details.
+A website developed using HTML, CSS and PHP for booking trips around Algeria, with the implementation of user profiles for drivers to create and manage trips, and passengers profiles to book trips with customized details.
 
 ## Features
 
